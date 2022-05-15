@@ -3,7 +3,7 @@
 <div class="container my-3">
     <div class="row my-3">
         <div class="col-6">
-            <a href="{{ url_for('question.create') }}" class="btn btn-primary">질문 등록하기</a>
+            <a href="{{ url_for('question.create') }}" class="btn btn-primary">운동메이트 구하기</a>
         </div>
         <div class="col-6">
             <div class="input-group">
@@ -41,7 +41,7 @@
         {% endfor %}
         {% else %}
         <tr>
-            <td colspan="3">질문이 없습니다.</td>
+            <td colspan="3">게시물이 없습니다.</td>
         </tr>
         {% endif %}
         </tbody>

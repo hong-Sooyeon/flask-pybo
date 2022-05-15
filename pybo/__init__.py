@@ -29,11 +29,20 @@ def create_app():
     from . import models
 
     # 블루프린트
-    from .views import main_views, question_views, answer_views, auth_views
+    from .views import main_views, question_views, answer_views, auth_views, exercise_views, calculator_views, \
+        form_sending_views, apply_views, complete_views, certify_views, mypage_views, hconnect_views
     app.register_blueprint(main_views.bp)
     app.register_blueprint(question_views.bp)
     app.register_blueprint(answer_views.bp)
     app.register_blueprint(auth_views.bp)
+    app.register_blueprint(exercise_views.bp)
+    app.register_blueprint(calculator_views.bp)
+    app.register_blueprint(form_sending_views.bp)
+    app.register_blueprint(apply_views.bp)
+    app.register_blueprint(complete_views.bp)
+    app.register_blueprint(certify_views.bp)
+    app.register_blueprint(mypage_views.bp)
+    app.register_blueprint(hconnect_views.bp)
 
     # 필터
     from .filter import format_datetime
