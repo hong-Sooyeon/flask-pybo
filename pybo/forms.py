@@ -26,6 +26,6 @@ class UserLoginForm(FlaskForm):
 
 
 #여기부터 직원 검증 위해 새로 만드는거
-class ConfirmForm(FlaskForm):
-    usernumber = IntegerField('행번', validators=[DataRequired(), Length(max=7)])
+class UserConfirmForm(FlaskForm):
+    usernumber = IntegerField('행번', validators=[DataRequired()])
     password = PasswordField('하나포탈비밀번호', validators=[DataRequired()])
