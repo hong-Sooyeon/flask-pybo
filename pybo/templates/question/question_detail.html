@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="container my-3">
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+    .container{
+        font-family: 'Do Hyeon', sans-serif;
+    }
+    </style>
     <!-- flash 오류 -->
     {% for message in get_flashed_messages() %}
     <div class="alert alert-danger" role="alert">

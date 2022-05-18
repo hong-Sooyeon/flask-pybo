@@ -13,3 +13,4 @@ bp = Blueprint('certify', __name__, url_prefix='/certify')
 @bp.route('/exercise/', methods=('GET', 'POST'))
 def certification():
     return render_template('certify/certification.html')
+

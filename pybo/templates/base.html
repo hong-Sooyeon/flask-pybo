@@ -9,13 +9,12 @@
     <!-- pybo CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>파이보</title>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');</style>
 </head>
 <!--무지개 그라<body style="background: linear-gradient(to right, #c6ffdd, #fbd786, #f7797d);">-->
 <body style="background: linear-gradient(to right, #c9ffbf, #ffafbd);">
-<!-- 네비게이션바 -->
+<!-- 네비게이션바-->
 {% include "navbar.html" %}
-<br>
-<br>
 <!-- 기본 템플릿 안에 삽입될 내용 Start -->
 {% block content %}
 {% endblock %}

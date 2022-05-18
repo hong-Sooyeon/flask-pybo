@@ -12,6 +12,4 @@ bp = Blueprint('hconnect', __name__, url_prefix='/hconnect')
 
 @bp.route('/hconnect/', methods=('GET', 'POST'))
 def screen():
-    return render_template('hconnect/screen_main.html')
-
-
+    return render_template('hconnect/screen_main2.html')

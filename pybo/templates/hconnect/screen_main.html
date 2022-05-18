@@ -46,104 +46,108 @@
   <div class="row justify-content-around">
     <div class="col-4">
 
-        <div class="card border-dark mb-3" style="max-width: 18rem;">
-          <div class="card-header" style="background: linear-gradient(to right, #feac5e, #c779d0, #4bc0c8);">회원가입</div>
-          <div class="card-body text-dark" style="background: linear-gradient(to right, #cc95c0, #dbd4b4, #7aa1d2);">
+        <!-- card border original<div class="card border-dark mb-3" style="max-width: 18rem;">-->
+        <div class="card border-0" style="max-width: 18rem;">
+          <!--<div class="card-header" style="background: #98ddca;">회원가입</div>-->
+          <div class="card-body text-dark" style="background: #f2789f;">
             <h5 class="card-title">회원가입하기</h5>
             <p class="card-text">어서오세요<br>HCONNECT는 처음이신가요?<br>계정을 먼저 생성해주세요</p>
-            <a href="{{ url_for('auth.signup') }}" class="btn btn-warning">가입하기</a>
+            <a href="{{ url_for('auth.signup') }}" class="btn btn-default btn-lg" style="background: #ffaaa7;">가입하기</a>
           </div>
         </div>
       </div>
 
       <div class="col-4">
-        <div class="card border-dark mb-3" style="max-width: 18rem;">
-          <div class="card-header" style="background-color: #ff8c00;">체력단련비 지원종목 확인하기</div>
-          <div class="card-body text-dark" style="background-color: #ffa500;">
+        <div class="card border-0" style="max-width: 18rem;">
+          <!--<div class="card-header" style="background: #f7dbf0;">체력단련비 지원종목 확인하기</div>-->
+          <div class="card-body text-dark" style="background-color: #f999b7;">
             <h5 class="card-title">운동 종목 확인하기</h5>
             <p class="card-text">운동을 등록하기 전에<br>체력단련비 지원이 가능한<br>운동종목을 확인해보세요</p>
-            <a href="{{ url_for('exercise.info') }}" class="btn btn-warning">확인가기</a>
+            <a href="{{ url_for('exercise.info') }}" class="btn btn-default btn-lg" style="background: #beaee2;">확인가기</a>
           </div>
         </div>
       </div>
 
       <div class="col-4">
-        <div class="card border-dark mb-3" style="max-width: 18rem;">
-          <div class="card-header" style="background-color: #ffdab9;">지원 가능금액 계산하기</div>
-          <div class="card-body text-dark" style="background-color: #ffe4b5;">
+        <div class="card border-0" style="max-width: 18rem;">
+          <!--<div class="card-header" style="background-color: #f999b7;">지원 가능금액 계산하기</div>-->
+          <div class="card-body text-dark" style="background-color: #f9c5d5;">
             <h5 class="card-title">지원가능 금액 확인하기</h5>
             <p class="card-text">오늘 신청하면<br>언제 얼마가 지원되는지<br>확인해보세요</p>
-            <a href="{{ url_for('calculator.amount') }}" class="btn btn-warning">계산하기</a>
+            <a href="{{ url_for('calculator.amount') }}" class="btn btn-default btn-lg" style="background: #f27898;">계산하기</a>
           </div>
         </div>
       </div>
   </div>
-
+  <br>
+  <br>
   <div class="row justify-content-around">
       <div class="col-4">
-        <div class="card border-dark mb-3" style="max-width: 18rem;">
-          <div class="card-header" style="background-color: 66cdaa;">수강확인서 발송하기</div>
-          <div class="card-body text-dark" style="background-color: #e0ffff;">
+        <div class="card border-0" style="max-width: 18rem;">
+          <!--<div class="card-header" style="background-color: #54bab9;">수강확인서 발송하기</div>-->
+          <div class="card-body text-dark" style="background-color: #ff9292;">
             <h5 class="card-title">운동기관에 메일보내기</h5>
             <p class="card-text">수강증 양식이 없는 운동기관에<br>수강확인서 서식을 보내서<br>사용하세요</p>
-            <a href="{{ url_for('form_sending.send') }}" class="btn btn-warning">메일발송</a>
+            <a href="{{ url_for('form_sending.send') }}" class="btn btn-default btn-lg" style="background: #d9d7f1;">메일발송</a>
           </div>
         </div>
       </div>
 
       <div class="col-4">
-        <div class="card border-dark mb-3" style="max-width: 18rem;">
-          <div class="card-header" style="background-color: #6495ed;">신청서 작성하기</div>
-          <div class="card-body text-dark" style="background-color: #add8e6;">
+        <div class="card border-0" style="max-width: 18rem;">
+          <!--<div class="card-header" style="background-color: #f6dfeb;">신청서 작성하기</div>-->
+          <div class="card-body text-dark" style="background-color: #ffb4b4;">
             <h5 class="card-title">운동등록 후 신청단계</h5>
             <p class="card-text">운동을 등록하셨다면<br>지원신청서를<br>작성해보세요</p>
-            <a href="{{ url_for('apply.make') }}" class="btn btn-warning">작성하기</a>
+            <a href="{{ url_for('apply.make') }}" class="btn btn-default btn-lg" style="background: #f8eded;">작성하기</a>
           </div>
         </div>
       </div>
 
       <div class="col-4">
-        <div class="card border-dark mb-3" style="max-width: 18rem;">
-          <div class="card-header" style="background-color: #d8bfd8;">신청완료하기</div>
-          <div class="card-body text-dark" style="background-color: #e6e6fa;">
+        <div class="card border-0" style="max-width: 18rem;">
+          <!--<div class="card-header" style="background-color: #9896f1;">신청완료하기</div>-->
+          <div class="card-body text-dark" style="background-color: #ffdcdc;">
             <h5 class="card-title">신청 마지막 단계입니다</h5>
             <p class="card-text">수강확인서, 카드영수증<br>신청서 작성을 마치셨으면<br>마지막 단계를 수행해주세요</p>
-            <a href="{{ url_for('complete.apply') }}" class="btn btn-warning">완료하기</a>
+            <a href="{{ url_for('complete.apply') }}" class="btn btn-default btn-lg" style="background: #d59bf6;">완료하기</a>
           </div>
         </div>
       </div>
   </div>
+  <br>
+  <br>
 
   <div class="row justify-content-around">
       <div class="col-4">
-        <div class="card border-dark mb-3" style="max-width: 18rem;">
-          <div class="card-header" style="background-color: #9370db;">운동 메이트 구하기</div>
-          <div class="card-body text-dark" style="background-color: #f0e68c;">
+        <div class="card border-0" style="max-width: 18rem;">
+          <!--<div class="card-header" style="background-color: #ffaaa7;">운동 메이트 구하기</div>-->
+          <div class="card-body text-dark" style="background-color: #be9fe1;">
             <h5 class="card-title">같이 운동하실래요?</h5>
             <p class="card-text">함께 운동할<br>친구를 찾아보세요<br>운동이 더 즐거워질거에요</p>
-            <a href="{{ url_for('main.index') }}" class="btn btn-warning">메이트구하기</a>
+            <a href="{{ url_for('main.index') }}" class="btn btn-default btn-lg" style="background: #98ddca;">메이트구하기</a>
           </div>
         </div>
       </div>
 
       <div class="col-4">
-        <div class="card border-dark mb-3" style="max-width: 18rem;">
-          <div class="card-header" style="background-color: #6a5acd;">운동 인증하기</div>
-          <div class="card-body text-dark" style="background-color: #d3d3d3;">
+        <div class="card border-0" style="max-width: 18rem;">
+          <!--<div class="card-header" style="background-color: #79b4b7;">운동 인증하기</div>-->
+          <div class="card-body text-dark" style="background-color: #c9b6e4;">
             <h5 class="card-title">별 모으러 가세</h5>
             <p class="card-text">운동 인증하고<br>별을 모아보세요<br>특별한 선물을 드려요</p>
-            <a href="{{ url_for('certify.certification') }}" class="btn btn-warning">별모으기</a>
+            <a href="{{ url_for('certify.certification') }}" class="btn btn-default btn-lg" style="background: #9d9d9d;">별모으기</a>
           </div>
           </div>
       </div>
 
       <div class="col-4">
-        <div class="card border-dark mb-3" style="max-width: 18rem;">
-          <div class="card-header" style="background-color: #778899;">정보 수정하기</div>
-          <div class="card-body text-dark" style="background-color: #fffacd;">
+        <div class="card border-0" style="max-width: 18rem;">
+          <!--<div class="card-header" style="background-color: #778899;">정보 수정하기</div>-->
+          <div class="card-body text-dark" style="background-color: #e1ccec;">
             <h5 class="card-title">마이페이지</h5>
             <p class="card-text">카드정보 수정,<br>신청내역 확인 등<br>정보 수정</p>
-            <a href="{{ url_for('mypage.modify_info') }}" class="btn btn-warning">마이페이지</a>
+            <a href="{{ url_for('mypage.modify_info') }}" class="btn  btn-default btn-lg btn-warning">마이페이지</a>
           </div>
           </div>
       </div>

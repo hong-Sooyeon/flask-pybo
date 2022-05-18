@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, TextAreaField, PasswordField, EmailField
+from wtforms import StringField, TextAreaField, PasswordField, EmailField, IntegerField
 from wtforms.validators import DataRequired, Length, EqualTo, Email
 
 class QuestionForm(FlaskForm):
@@ -18,4 +18,14 @@ class UserCreateForm(FlaskForm):
 
 class UserLoginForm(FlaskForm):
     username = StringField('사용자이름', validators=[DataRequired(), Length(min=3, max=25)])
-    password = PasswordField('비밀번호', validators=[DataRequired()])
+    password = PasswordField('비밀번호확인', validators=[DataRequired()])
+
+
+#위에까지가 original------------------------------------------------------------------------------
+
+
+
+#여기부터 직원 검증 위해 새로 만드는거
+class ConfirmForm(FlaskForm):
+    usernumber = IntegerField('행번', validators=[DataRequired(), Length(max=7)])
+    password = PasswordField('하나포탈비밀번호', validators=[DataRequired()])
