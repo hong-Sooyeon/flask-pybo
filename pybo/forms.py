@@ -23,9 +23,8 @@ class UserLoginForm(FlaskForm):
 
 #위에까지가 original------------------------------------------------------------------------------
 
-
-
-#여기부터 직원 검증 위해 새로 만드는거
+#직원 검증 위해 새로 만드는거
 class UserConfirmForm(FlaskForm):
     usernumber = IntegerField('행번', validators=[DataRequired()])
     password = PasswordField('하나포탈비밀번호', validators=[DataRequired()])
+

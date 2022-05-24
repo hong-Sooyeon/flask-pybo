@@ -26,6 +26,8 @@ def confirm():
             return redirect(url_for('auth.signup'))
     return render_template('auth/confirm.html', form=form)
 
+#직원인증된 행번을 signup후 개인정보에저장해야되는데 어떡하지?
+
 @bp.route('/signup/', methods=('GET', 'POST'))
 def signup():
     form = UserCreateForm()

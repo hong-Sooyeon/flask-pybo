@@ -7,9 +7,14 @@ from pybo import db
 from ..forms import AnswerForm
 from pybo.models import Question, Answer
 from .auth_views import login_required
+from pybo.forms import UserLoginForm
+
+
+
 
 bp = Blueprint('calculator', __name__, url_prefix='/calculator')
 
 @bp.route('/calculator/', methods=('GET', 'POST'))
 def amount():
     return render_template('calculator/calculator_amount.html')
+
