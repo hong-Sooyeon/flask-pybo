@@ -1,6 +1,71 @@
 {% extends 'base.html' %}
 {% block content %}
 
+    <!-- Custom styles for this template -->
+    <link href="form-validation.css" rel="stylesheet">
+  </head>
+  <body class="bg-light">
+
+<div class="container">
+  <main>
+    <div class="py-5 text-center">
+      <img class="d-block mx-auto mb-4">
+      <h2>수강확인서 발송하기</h2>
+      <p class="lead">수강기관의 자체 수강증 또는 계약서가 없거나 발급 불가한 경우, 아래 양식으로 사용하시면 됩니다.</p>
+    </div>
+
+    <div class="row g-5">
+
+
+
+		<div class="container my-3">
+    <div class="row my-3">
+        <div class="col-6">
+            <h1>Email System</h1>
+<h1>{{ content }}</h1>
+
+ <form action="/email/email" method="POST"enctype="multipart/form-data">
+  <dl>
+   <dt>Email_Sender:</dt>
+
+   <dd>
+    <input type="text" name=email_sender value="" />
+   </dd>
+
+   <dt>Email_Receiver:</dt>
+
+   <dd>
+    <input type="text" name=email_receiver value="" />
+   </dd>
+
+   <dt>File:</dt>
+   <dd>
+    <input type=file name=email_file value="">
+   </dd>
+
+   <dt>Title:</dt>
+   <dd>
+    <input type="text" name=email_title value="">
+   </dd>
+
+   <dt>Content:</dt>
+   <dd>
+    <input type="text" name=email_content value="">
+   </dd>
+  </dl>
+  <p>
+   <input type=submit value=SEND>
+  </p>
+ </form>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -59,20 +124,17 @@
     </style>
 
 
-    <!-- Custom styles for this template -->
-    <link href="form-validation.css" rel="stylesheet">
-  </head>
-  <body class="bg-light">
 
-<div class="container">
-  <main>
-    <div class="py-5 text-center">
-      <img class="d-block mx-auto mb-4">
-      <h2>수강확인서 발송하기</h2>
-      <p class="lead">수강기관의 자체 수강증 또는 계약서가 없거나 발급 불가한 경우, 아래 양식으로 사용하시면 됩니다.</p>
-    </div>
 
-    <div class="row g-5">
+
+
+
+
+
+
+
+
+
 
             <!--pdf파일보여주기!-->
 
@@ -340,7 +402,7 @@
 		</div>
 
 
-             <!--pdf파일보여주기--!>
+             <!--pdf파일보여주기-->
 
 
 
@@ -349,6 +411,7 @@
           <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
         </form>
       </div>
+	  </body>
     </div>
   </main>
 
