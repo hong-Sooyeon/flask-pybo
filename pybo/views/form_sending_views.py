@@ -46,7 +46,7 @@ def send_email(senders, receiver, file, title, content):
         MAIL_SERVER = 'smtp.gmail.com'
         MAIL_PORT = 587
         MAIL_USERNAME = 'mielhong@gmail.com'
-        APP_PASSWORD = 'howdo3040*'
+        APP_PASSWORD = '*********'
 
         # Setting
         mailServer = smtplib.SMTP(MAIL_SERVER, MAIL_PORT)
