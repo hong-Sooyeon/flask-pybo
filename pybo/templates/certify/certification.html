@@ -26,10 +26,6 @@
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/album/">
 
-
-
-
-
 <!--<link href="/docs/5.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">-->
 
 <!--    &lt;!&ndash; Favicons &ndash;&gt;-->
@@ -98,36 +94,26 @@
 
   </head>
   <body>
-
 <header>
-    <div class="collapse bg-dark" id="navbarHeader">
+<!--    <div class="navbar bg-dark" id="navbarHeader">-->
     <div class="container">
       <div class="row">
-        <div class="col-sm-8 col-md-7 py-4">    #col-sm- : 수평으로 쌓임
-          <h4 class="text-white">운동 인증하기</h4>
-          <p class="text-muted">오늘의 운동을 사진으로 인증하고 별을 모아보세요</p>
-        </div>
-        <div class="col-sm-4 offset-md-1 py-4">
-          <h4 class="text-white">사진 관리</h4>
-          <ul class="list-unstyled">
-            <li><a href="#" class="text-white">새로운 사진 등록</a></li>
-            <li><a href="#" class="text-white">내 사진 보기</a></li>
-          </ul>
+<!--        <div class="col-sm-8 col-md-7 py-1">    #col-sm- : 수평으로 쌓임-->
+          <div class="col-sm-5">
+              <br>
+          <h4 class="text-black">운동 인증하기</h4>
+              <p class="text-muted">오늘의 운동을 사진으로 인증하고 별을 모아보세요</p>
+          </div>
+
+        <div class="col-sm-4 offset-md-1 py-4 align-self-end">
+
+            <div class="btn-group" style="text-black">
+<!--                <button type="button" class="btn btn-light"><a href="{{ url_for('certify.create') }}" style="text-decoration-line: none;">사진 등록</a></button>-->
+                <a href="{{ url_for('certify.create') }}" class="btn btn-primary">사진 등록</a>
+            </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="navbar navbar-dark bg-dark shadow-sm">
-    <div class="container">
-      <a href="#" class="navbar-brand d-flex align-items-center">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-        <strong>Album</strong>
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    </div>
-  </div>
 </header>
 
 <main>
@@ -145,7 +131,9 @@
 <!--    </div>-->
 <!--  </section>-->
 
-  <div class="album py-5 bg-light">
+    <!--original, 사진 뒤 화면 하얀거 <div class="album py-5 bg-light">-->
+    <div class="album py-5">
+
     <div class="container">
 
 <!--     original <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">-->
@@ -153,10 +141,13 @@
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-5">
         <div class="col">
           <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img"
+                 aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title>
+                <image href="{{ url_for('static', filename='images/user_img/test1.jpg') }}" style="width:100%; height:100%;"></svg>
 
             <div class="card-body">
               <p class="card-text">사진올린 id, 날짜 표시하기</p>
+
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
 <!--              original <button type="button" class="btn btn-sm btn-outline-secondary">크게 보기</button>-->
@@ -167,12 +158,15 @@
             </div>
           </div>
         </div>
+
         <div class="col">
           <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img"
+                 aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title>
+                <image href="{{ url_for('static', filename='images/user_img/test2.jpg') }}" style="width:100%;"></svg>
 
             <div class="card-body">
-              <p class="card-text"></p>
+              <p class="card-text">카드 텍스트를 입력하세요</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
 <!--                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>-->
@@ -290,15 +284,10 @@
 <footer class="text-muted py-5">
   <div class="container">
     <p class="float-end mb-1">
-      <a href="#">Back to top</a>
+      <a href="#">위로 올라가기</a>
     </p>
-    <p class="mb-1">Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-    <p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="/docs/5.2/getting-started/introduction/">getting started guide</a>.</p>
   </div>
 </footer>
-
-
-    <script src="/docs/5.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 
 
   </body>
