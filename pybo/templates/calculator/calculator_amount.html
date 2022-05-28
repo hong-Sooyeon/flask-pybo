@@ -1,9 +1,34 @@
 {% extends 'base.html' %}
 {% block content %}
+<div class="container" style="text-align: center;">
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+    .container{
+        font-family: 'Do Hyeon', sans-serif;
+    }
+</style>
+
+<div class="mb-3">
+    <label for="start">Start date:</label>
+    <input type="date" id="start" name="exercise-start"
+        value="2022-01-01"
+        min="2022-01-01" max="2024-12-31">
+
+    <label for="end">End date:</label>
+
+    <input type="date" id="end" name="exercise-end"
+        value="2022-01-01"
+        min="2022-01-01" max="2024-12-31">
+    신청금액 <input type="text"><br>
+    계산하기 <input type="submit"><br>
 <div>
     <tr>
         <th>지원가능금액, 날짜 계산해주기</th>
     </tr>
 </div>
+
+
+</div>
+
 
 {% endblock %}
