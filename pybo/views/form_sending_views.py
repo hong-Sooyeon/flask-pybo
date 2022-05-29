@@ -13,7 +13,7 @@ bp = Blueprint('form_sending', __name__, url_prefix='/form_sending')
 #email library
 
 @bp.route('/email', methods=('GET', 'POST'))
-@login_required
+# @login_required
 def email_test():
     if request.method == 'POST':
         senders = request.form['email_sender']
@@ -34,7 +34,7 @@ def email_test():
         return render_template('form_sending/form_sending.html')
 
 @bp.route('/send_email', methods=('GET', 'POST'))
-@login_required
+# @login_required
 def send_email(senders, receiver, file, title, content):
     try:
         msg = MIMEMultipart('alternative')

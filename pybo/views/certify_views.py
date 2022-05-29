@@ -17,6 +17,8 @@ def certification():
 
 # 아래부터가 새로운 코드(이미지업로드 게시판 만들기)
 @bp.route('/create/', methods=('GET', 'POST'))
-@login_required
+# @login_required
 def create():
     return render_template('certify/photo_create.html')
+
+
