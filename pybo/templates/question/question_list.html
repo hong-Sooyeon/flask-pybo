@@ -1,20 +1,46 @@
 {% extends 'base.html' %}
 {% block content %}
+
+
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+    .container{
+        font-family: 'Do Hyeon', sans-serif;
+    }
+    </style>
+
+<body>
+    <header>
+        <div class="container">
+          <div class="row">
+              <div class="col-sm-5">
+                  <br>
+              <h4 class="text-black">운동 메이트 구하기</h4>
+                  <p class="text-muted">함께 나누고 싶은 운동이 있다면, 여기서 친구를 찾아보세요</p>
+              </div>
+            <div class="col-sm-4 offset-md-1 py-4 align-self-end">
+                <div class="btn-group" style="text-black">
+                    <a href="{{ url_for('question.create') }}" class="btn btn-primary">운동메이트 구하기</a>
+                </div>
+            </div>
+          </div>
+        </div>
+    </header>
+
+<main>
 <div class="container my-3">
     <div class="row my-3">
-        <div class="col-6">
-            <a href="{{ url_for('question.create') }}" class="btn btn-primary">운동메이트 구하기</a>
-        </div>
         <div class="col-6">
             <div class="input-group">
                 <input type="text" id="search_kw" class="form-control" value="{{ kw or '' }}">
                 <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button" id="btn_search">찾기</button>
+                    <button class="btn btn-outline-secondary " type="button" id="btn_search">찾기</button>
                 </div>
             </div>
         </div>
     </div>
-    <table class="table">
+
+    <table class="table bg-light"">
         <thead>
         <tr class="text-center" table-dark">
             <th>번호</th>
@@ -109,4 +135,9 @@ btn_search.addEventListener('click', function() {
     document.getElementById('searchForm').submit();
 });
 </script>
+
+
+</main>
+</body>
+
 {% endblock %}

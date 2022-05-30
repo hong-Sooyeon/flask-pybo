@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # email library
 import os
 import smtplib
@@ -35,6 +36,24 @@ bp = Blueprint('form_sending', __name__, url_prefix='/form_sending')
 
 @bp.route('/form_sending/', methods=('GET', 'POST'))
 
+=======
+from datetime import datetime
+
+from flask import Blueprint, url_for, render_template, flash, request
+from werkzeug.utils import redirect
+
+from pybo import db
+from ..forms import AnswerForm
+from pybo.models import Question, Answer
+from .auth_views import login_required
+
+
+bp = Blueprint('form_sending', __name__, url_prefix='/form_sending')
+#email library
+
+@bp.route('/email', methods=('GET', 'POST'))
+# @login_required
+>>>>>>> 10e1a054ffa6d0ea81b3563c7638db52bf398a7a
 def email_test():
     if request.method == 'POST':
         senders = request.form['email_sender']
@@ -53,8 +72,13 @@ def email_test():
 
     else:
         return render_template('form_sending/form_sending.html')
+<<<<<<< HEAD
 
+=======
+>>>>>>> 10e1a054ffa6d0ea81b3563c7638db52bf398a7a
 
+@bp.route('/send_email', methods=('GET', 'POST'))
+# @login_required
 def send_email(senders, receiver, file, title, content):
     try:
         msg = MIMEMultipart('alternative')
