@@ -13,3 +13,7 @@ bp = Blueprint('apply', __name__, url_prefix='/apply')
 @bp.route('/apply/', methods=('GET', 'POST'))
 def make():
     return render_template('apply/apply_make.html')
+
+
+
+

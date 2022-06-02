@@ -19,6 +19,7 @@ def certification():
 @bp.route('/create/', methods=('GET', 'POST'))
 # @login_required
 def create():
+    if request.method == 'POST':
+        return redirect(url_for('certify.certification'))
     return render_template('certify/photo_create.html')
-
 

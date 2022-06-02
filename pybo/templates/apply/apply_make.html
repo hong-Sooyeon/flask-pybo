@@ -1,9 +1,133 @@
 {% extends 'base.html' %}
 {% block content %}
-<div>
-    <tr>
-        <th>지원신청서 작성하기</th>
-    </tr>
-</div>
+    <div class="container" style="text-align: center;">
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+    .container{
+        font-family: 'Do Hyeon', sans-serif;
+    }
+</style>
 
+
+</head>
+<body style="background-color:#6488E5">
+<center>
+ <h1> 체력단련비 신청서 </h1>
+ <table boder = "cellspacing = "1" >
+ <FORM>
+
+
+  <tr>
+   <td> ■ 인적사항 </td>
+  </tr>
+
+  <tr>
+   <td text-align="center"> 행번 </td>
+   <td> <input type = "text" /> </td>
+  </tr>
+
+  <tr>
+   <td text-align="center"> 성명 </td>
+   <td> <input type = "text" /> </td>
+  </tr>
+
+  <tr>
+   <td text-align="center"> 부점명 </td>
+   <td> <input type = "text" /> </td>
+  </tr>
+
+  <tr>
+   <td text-align="center"> 직급 </td>
+       <td>
+          <select>
+              <option> 행원 </option>
+              <option> 대리 </option>
+              <option> 과장 </option>
+              <option> 차장 </option>
+              <option> 부지점장 </option>
+            </select>
+       </td>
+  </tr>
+
+  <tr>
+   <td> ■ 수강상세내역 </td>
+  </tr>
+
+
+  <tr>
+   <td text-align="center"> 수강과목 </td>
+   <td> <input type = "text" /> </td>
+  </tr>
+
+  <tr>
+   <td text-align="center"> 수강기간 </td>
+   <td>
+       <form>
+      <p><input type="date"> ~ <input type="date"></p>
+       </form>
+   </td>
+  </tr>
+
+  <tr>
+   <td text-align="center"> 기관명 </td>
+   <td> <input type = "text" /> </td>
+  </tr>
+
+  <tr>
+   <td text-align="center"> 기관 전화번호 </td>
+   <td> <input type = "text" /> </td>
+  </tr>
+
+  <tr>
+   <td text-align="center"> 총결제금액 </td>
+   <td> <input type = "text" /> </td>
+  </tr>
+
+  <tr>
+   <td text-align="center"> 수강개월 </td>
+      <td>
+          <select>
+              <option> 1개월 </option>
+              <option> 2개월 </option>
+              <option> 3개월 </option>
+              <option> 4개월 </option>
+              <option> 5개월 </option>
+              <option> 6개월 </option>
+              <option> 7개월 </option>
+              <option> 8개월 </option>
+              <option> 9개월 </option>
+              <option> 10개월 </option>
+              <option> 11개월 </option>
+              <option> 12개월 </option>
+            </select>
+       </td>
+  </tr>
+
+  <tr>
+   <td text-align="center"> 영수증 결제일 </td>
+   <td> <input type = "text" /> </td>
+  </tr>
+
+  <tr>
+   <td text-align="center"> 승인번호 </td>
+   <td> <input type = "text" /> </td>
+  </tr>
+
+  <tr>
+   <td text-alig    n="center"> 결제카드번호 </td>
+   <td> <input type = "text" /> </td>
+  </tr>
+
+ </FORM>
+</table>
+
+<br/>
+
+
+<input type = "submit" value = "제출하기"/>
+
+
+</center>
+</body>
+</html>
 {% endblock %}
