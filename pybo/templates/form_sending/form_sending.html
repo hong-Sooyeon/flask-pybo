@@ -58,76 +58,30 @@
     }
     </style>
 
-
-    <!-- Custom styles for this template -->
-    <link href="form-validation.css" rel="stylesheet">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script type = "text/javascript" src = "http://code.jquery.com/jquery-latest.min.js"></script>
     <script type = "text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
-  <script type = "text/javascript" src = "https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script type = "text/javascript" src = "https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 
 
-  </head>
-  <body class="bg-light">
-
-<div class="container">
-  <main>
+    <title>Document</title>
+</head>
+<body>
+    <div id="document">
+        <div class="container">
+        <main>
     <div class="py-5 text-center">
       <img class="d-block mx-auto mb-4">
       <h1>수강확인서</h1>
       <p class="lead">수강기관의 자체 수강증 또는 계약서가 없거나 발급 불가한 경우,<br/>아래 양식으로 사용 하시면 됩니다.</p>
     </div>
 
-    <!--이메일보내기기능-->
-
-    <div class="container my-3">
-    <div class="row my-3">
-        <div class="col-6">
-            <h1>Email System</h1>
-
- <h1>{{ content }}</h1>
-
- <form action="/form_sending/form_sending" method="POST"enctype="multipart/form-data">
-  <dl>
-   <dt>Email_Sender:</dt>
-
-   <dd>
-    <input type="text" name=email_sender value="" />
-   </dd>
-
-   <dt>Email_Receiver:</dt>
-
-   <dd>
-    <input type="text" name=email_receiver value="" />
-   </dd>
-
-   <dt>File:</dt>
-   <dd>
-    <input type=file name=email_file value="">
-   </dd>
-
-   <dt>Title:</dt>
-   <dd>
-    <input type="text" name=email_title value="">
-   </dd>
-
-   <dt>Content:</dt>
-   <dd>
-    <input type="text" name=email_content value="">
-   </dd>
-  </dl>
-  <p>
-   <input type=submit value=SEND>
-  </p>
- </form>
-        </div>
-
-    </div>
-</div>
-
-    <!---이메일보내기기능끝-->
-
-
-    <div class="row g-5">
+       <div class="row g-5">
       <div class="col-md-7 col-lg-8">
         <h4 class="mb-3">인적사항</h4>
           <form class="needs-validation" novalidate>
@@ -141,7 +95,7 @@
               </div>
             </div>
 
-              <div class="col-sm-6">
+            <div class="col-sm-6">
               <label for="username" class="form-label">성명</label>
               <input type="text" class="form-control" id="username" placeholder="" value="" required>
               <div class="invalid-feedback">
@@ -165,11 +119,10 @@
               </div>
             </div>
           </div>
-
           <hr class="my-4">
           <h4 class="mb-3">수강상세내역</h4>
 
-            <div class="row gy-3">
+          <div class="row gy-3">
               <div class="col-md-6">
               <label class="form-label">수강과목</label>
               <div class="input-group mb-3">
@@ -195,23 +148,23 @@
                 <option value="17">12.기타</option>
               </select>
             </div>
+          </div>
+          </div>
 
-              </div>
-            </div>
+              <label class="form-label">수강기간</label>
 
+            <div class="row g-3">
 
-            <label class="form-label">수강기간</label>
-
-               <div class="row g-3">
             <div class="col-sm-6">
               <label for="fromDate" class="form-label">시작일자</label>
               <input type="text" class="form-control" id="fromDate" placeholder="" value="" required>
             </div>
 
-              <div class="col-sm-6">
+            <div class="col-sm-6">
               <label for="toDate" class="form-label">종료일자</label>
               <input type="text" class="form-control" id="toDate" placeholder="" value="" required>
             </div>
+          </div>
 
            <div class="row g-3">
             <div class="col-sm-6">
@@ -219,18 +172,18 @@
               <input type="text" class="form-control" id="amount" placeholder="" value="" required>
             </div>
 
-              <div class="col-sm-6">
+            <div class="col-sm-6">
               <label for="payDate" class="form-label">결제일</label>
               <input type="text" class="form-control" id="payDate" placeholder="" value="" required>
             </div>
             </div>
-          <hr class="my-4">
 
-        <div class="col-md-7 col-lg-8">
-        <h4 class="mb-3">기관정보</h4>
-        <form class="needs-validation" novalidate>
+              <hr class="my-4">
+          <h4 class="mb-3">기관정보</h4>
+
           <div class="row g-3">
-            <div class="col-sm-6">
+              <div class="col-md-6">
+
               <label for="centerName" class="form-label">기관명</label>
               <input type="text" class="form-control" id="centerName" placeholder="" value="" required>
             </div>
@@ -256,37 +209,61 @@
             </div>
 
 
+             <hr class="my-4">
+              <div class='textbottom' align="center">위 수강생에 대하여 수강 사실을 확인합니다.<br/><br/>
+              년&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp월&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp일<br/><br/>
+              기관명(&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp)(명판 or 직인)&nbsp;서명불가<br/>
+            </div>
+              <br/><br/>※ 수강 확인을 위하여 은행에서 귀 시설로 방문 / 전화 드릴 수 있는 점 양해 바랍니다.&nbsp;
+                <hr class="my-4">
 
-            <div class="stl_01" style="left:13.6088em;top:53.4891em;"><span class="stl_27 stl_08 stl_09" style="word-spacing:0.3501em;">위 수강생에 대하여 수강 사실을 확인합니다</span><span class="stl_28 stl_13 stl_09" style="word-spacing:0.3501em;">. &nbsp;</span></div>
-					<div class="stl_01" style="left:23.7942em;top:55.9391em;"><span class="stl_10 stl_08 stl_09">년 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp월&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp일</span></div>
-					<div class="stl_01" style="left:13.6023em;top:58.052em;"><span class="stl_27 stl_08 stl_09">기관명(&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp)(명판 or 직인)</span><span class="stl_28 stl_13 stl_09">&nbsp;서명불가</span></div>
-					<div class="stl_01" style="left:9.6937em;top:62.3085em;"><span class="stl_25 stl_13 stl_09" style="word-spacing:0.3501em;">※ </span><span class="stl_23 stl_08 stl_21" style="word-spacing:0.3501em;">수강 확인을 위하여 은행에서 귀 시설로 방문 </span><span class="stl_22 stl_13 stl_09" style="word-spacing:0em;">/ </span><span class="stl_23 stl_08 stl_09" style="word-spacing:0.3501em;">전화 드릴 수 있는 점 양해 바랍니다. &nbsp;</span></div>
-				</div>
+</form>
+     </div>
+        </div>
+        </div>
+        </div>
 
+    <div class="buttons" align="left">
+    <button type="button" class="btn btn-primary btn-lg" onclick="generatePDF()">파일로 저장하기</button>
+    <button type="button" class="btn btn-secondary btn-lg" id="create_pdf">메일로 전송하기</button>
 
-          <button class="w-100 btn btn-primary btn-lg" type="submit" value="convertIt">파일 메일로 보내기</button>
-        </form>
-      </div>
-    </div>
-  </main>
-
-  <footer class="my-5 pt-5 text-muted text-center text-small">
-    <p class="mb-1">&copy; 2017–2022 Company Name</p>
-    <ul class="list-inline">
-      <li class="list-inline-item"><a href="#">Privacy</a></li>
-      <li class="list-inline-item"><a href="#">Terms</a></li>
-      <li class="list-inline-item"><a href="#">Support</a></li>
-    </ul>
-  </footer>
-</div>
+        <script type = "text/javascript" src = "http://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+    <script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 
 
-    <script src="/docs/5.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body></div>
 
-      <script src="form-validation.js"></script>
-  </body>
+
+<script>
+    function generatePDF(){
+        console.log("pdf다운로드");
+        var element = document.getElementById("document");
+
+        html2pdf()
+        .from(element)
+        .set({
+            margin: 5,
+            filename: 'documentForm.pdf',
+            html2canvas: { scale : 1 },
+            jsPDF: {orientation: 'portrait', unit: 'mm', format: 'a4', compressPDF: 'true'}
+            })
+        .save();
+    }
+</script>
+
+<script>
+   $('#create_pdf').click(function() {  //pdf_wrap을 canvas객체로 변환
+  html2canvas($('#document')[0]).then(function(canvas) {
+    var doc = new jsPDF('p', 'mm', 'a4'); //jspdf객체 생성
+    var imgData = canvas.toDataURL('image/png'); //캔버스를 이미지로 변환
+    doc.addImage(imgData, 'PNG', 0, 0); //이미지를 기반으로 pdf생성
+    doc.save('sample-file.pdf'); //pdf저장
+  });
+});
+
+</script>
+
 </html>
-
-
 
 {% endblock %}

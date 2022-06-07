@@ -1,59 +1,48 @@
-<<<<<<< HEAD
-# email library
-import os
-import smtplib
-from email import encoders
-from email.header import Header
-from email.mime.base import MIMEBase
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
+# # email library
+# import os
+# import smtplib
+# from email import encoders
+# from email.header import Header
+# from email.mime.base import MIMEBase
+# from email.mime.multipart import MIMEMultipart
+# from email.mime.text import MIMEText
 from flask import request, render_template, Blueprint, app, flash, Flask
-
-# import sys
-# from PyQt5.QtCore import *
-# from PyQt5.QtGui import *
-# from PyQt5.QtWebKit import *
 #
-# app = QApplication(sys.argv)
-# w = QWebView()
-# w.load(QUrl('https://www.delftstack.com'))
-# p = Qp()
-# p.setPageSize(Qp.A4)
-# p.setOutputFormat(Qp.PdfFormat)
-# p.setOutputFileName("sample.pdf")
+# # import sys
+# # from PyQt5.QtCore import *
+# # from PyQt5.QtGui import *
+# # from PyQt5.QtWebKit import *
+# #
+# # app = QApplication(sys.argv)
+# # w = QWebView()
+# # w.load(QUrl('https://www.delftstack.com'))
+# # p = Qp()
+# # p.setPageSize(Qp.A4)
+# # p.setOutputFormat(Qp.PdfFormat)
+# # p.setOutputFileName("sample.pdf")
+# #
+# # def convertIt():
+# #     w.print_(p)
+# #     QApplication.exit()
+# #
+# # QObject.connect(w, SIGNAL("loadFinished(bool)"), convertIt)
+# # sys.exit(app.exec_())f
+
+
+# from flask import Blueprint, url_for, render_template, flash, request
+# from werkzeug.utils import redirect
 #
-# def convertIt():
-#     w.print_(p)
-#     QApplication.exit()
-#
-# QObject.connect(w, SIGNAL("loadFinished(bool)"), convertIt)
-# sys.exit(app.exec_())f
-
-
-
-
-bp = Blueprint('form_sending', __name__, url_prefix='/form_sending')
-
-@bp.route('/form_sending/', methods=('GET', 'POST'))
-
-=======
-from datetime import datetime
-
-from flask import Blueprint, url_for, render_template, flash, request
-from werkzeug.utils import redirect
-
-from pybo import db
-from ..forms import AnswerForm
-from pybo.models import Question, Answer
-from .auth_views import login_required
+# from pybo import db
+# from ..forms import AnswerForm
+# from pybo.models import Question, Answer
+# from .auth_views import login_required
 
 
 bp = Blueprint('form_sending', __name__, url_prefix='/form_sending')
 #email library
 
 @bp.route('/email', methods=('GET', 'POST'))
-# @login_required
->>>>>>> 10e1a054ffa6d0ea81b3563c7638db52bf398a7a
+
 def email_test():
     if request.method == 'POST':
         senders = request.form['email_sender']
@@ -72,10 +61,9 @@ def email_test():
 
     else:
         return render_template('form_sending/form_sending.html')
-<<<<<<< HEAD
 
-=======
->>>>>>> 10e1a054ffa6d0ea81b3563c7638db52bf398a7a
+
+
 
 @bp.route('/send_email', methods=('GET', 'POST'))
 # @login_required
