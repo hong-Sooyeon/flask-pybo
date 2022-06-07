@@ -1,59 +1,225 @@
 {% extends 'base.html' %}
-{% block title %}
-{% endblock %}
-
 {% block content %}
 
-<div class='container'>
-    <div class="row">
-        <div class="col"></div>
-        <div class="col-5">
-            {% for object in object_list %}
 
-            <div class="card">
-                <div class="card-header">
-                    {{ object.author }}
-                </div>
-                <img src=" {{ object.image.url }}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <p class="card-text"> {{ object.text }} </p>
-                </div>
-                <ul class="list-group list-group-flush">
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+    .container{
+        font-family: 'Do Hyeon', sans-serif;
+    }
+    </style>
 
-                   <li class="list-group-item">
-                        <a href="{% url 'photo:like' object.id %}" class="float-left btn-like {%if user in object.like.all %} active {%endif%}">좋아요!</a>
-                        {% if object.like.all.count %}
-                        <span class = "float-left">
-                            {{object.like.all.count}}
-                        </span>
-                        {% endif %}
-                        <a href="{% url 'photo:favorite' object.id %}" class="float-right btn-favorite {%if user in object.favorite.all %}active{%endif%}">저장하기!</a>
-                    </li>
-                    <li class="list-group-item">생성일 : {{ object.created }}</li>
-                </ul>
-                <div class="card-body">
-                    <a href="{% url 'photo:detail' object.id %}" class="card-link">댓글달기</a>
-                    <a href="{% url 'photo:update' object.id %}" class="card-link">수정하기</a>
-                    <a href="{% url 'photo:delete' object.id %}" class="card-link">삭제하기</a>
-
-                </div>
-
-            </div>
-            {% endfor %}
-
-        </div>
-
-        <div class="col">
-            {% load static %}
-            <div class="card" style="">
-                <img src="{% static 'images/bu-k.jpg' %}" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">admin</h5>
-                    <p class="card-text">회원님의 스토리를 확인해보세요!</p>
-                    <a href="{% url 'photo:mylist' %}" class="btn btn-primary">회원님의 스토리 이동 </a>
+<body>
+    <header>
+        <div class="container">
+          <div class="row">
+              <div class="col-sm-5">
+                  <br>
+              <h4 class="text-black">운동 인증하기</h4>
+                  <p class="text-muted">운동 인증 사진을 올려보세요</p>
+              </div>
+            <div class="col-sm-4 offset-md-1 py-4 align-self-end">
+                <div class="btn-group" style="text-black">
+                    <a href="{{ url_for('photo.create') }}" class="btn btn-primary">운동 인증하기</a>
                 </div>
             </div>
+          </div>
         </div>
-    </div>
+    </header>
+
+<main>
+
+<!----------검색바, 안쓸예정--------->
+<!--<div class="container my-3">-->
+<!--    <div class="row my-3">-->
+<!--        <div class="col-6">-->
+<!--            <div class="input-group">-->
+<!--                <input type="text" id="search_kw" class="form-control" value="{{ kw or '' }}">-->
+<!--                <div class="input-group-append">-->
+<!--                    <button class="btn btn-outline-secondary " type="button" id="btn_search">찾기</button>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!------------------검색바 여기까지------>
+
+
+
+    <table class="table bg-light">
+<!--    <thead>-->
+<!--    <th>-->
+        {% if photo_list %}
+        {% for photo in photo_list.items %}
+        <tr class="text-center">
+            <td>{{ photo_list.total - ((photo_list.page-1) * photo_list.per_page) - loop.index0 }}
+            </td>
+            <td class="text-center">     <!----td 이거 지우면 카드 바탕 하얀거 없어짐------------->
+            <!-- new card 1 -->
+            <div class="album py-5">
+            <div class="container">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-5" id="parent">
+                <div class="col" id="new_card">
+                  <div class="card shadow-sm">
+                    <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img">
+<!--                         aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title>-->
+                        <img src="{{ photo.content }}" style="width:100%; height:100%;"></svg>   <!---------여기 이미지경로 불러와서 사진 띄워야 하는데 안뜸------>
+<!--                        <img src="{{ photo.content }}/" style="width:100%; height:225">-->
+<!--                        <form method="POST" enctype="multipart/form-data" action="{{ url_for('static', filename='images/user/{}.jpg') }}" style="width:100%; height:100%;"></svg>-->
+                    <div class="card-body">
+                      <p class="card-text">...</p>
+
+                      <div class="d-flex justify-content-between align-items-center">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+            </div>
+            </div>
+            <!-----new card 여기까지---------------->
+            </td>
+
+        {% endfor %}
+        {% else %}
+        <tr>
+            <td colspan="3">게시물이 없습니다.</td>
+        </tr>
+        {% endif %}
+    </table>
+
+
+    <!-- 페이징처리 시작 -->
+    <ul class="pagination justify-content-center">
+        <!-- 이전페이지 -->
+        {% if photo_list.has_prev %}
+        <li class="page-item">
+            <a class="page-link" data-page="{{ photo_list.prev_num }}" href="javascript:void(0)">이전</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <a class="page-link" tabindex="-1" aria-disabled="true" href="javascript:void(0)">이전</a>
+        </li>
+        {% endif %}
+        {% for page_num in photo_list.iter_pages() %}
+        {% if page_num %}
+        {% if page_num != photo_list.page %}
+        <li class="page-item">
+            <a class="page-link" data-page="{{ page_num }}" href="javascript:void(0)">{{ page_num }}</a>
+        </li>
+        {% else %}
+        <li class="page-item active" aria-current="page">
+            <a class="page-link" href="javascript:void(0)">{{ page_num }}</a>
+        </li>
+        {% endif %}
+        {% else %}
+        <li class="disabled">
+            <a class="page-link" href="javascript:void(0)">...</a>
+        </li>
+        {% endif %}
+        {% endfor %}
+        <!-- 다음페이지 -->
+        {% if photo_list.has_next %}
+        <li class="page-item">
+            <a class="page-link" data-page="{{ photo_list.next_num }}" href="javascript:void(0)">다음</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <a class="page-link" tabindex="-1" aria-disabled="true" href="javascript:void(0)">다음</a>
+        </li>
+        {% endif %}
+    </ul>
+    <!-- 페이징처리 끝 -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!------original----------->
+<!--    <table class="table bg-light">-->
+<!--&lt;!&ndash;    <thead>&ndash;&gt;-->
+<!--&lt;!&ndash;    <th>&ndash;&gt;-->
+<!--    &lt;!&ndash; new card 1 &ndash;&gt;-->
+<!--        <div class="album py-5">-->
+<!--        <div class="container">-->
+<!--            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-5" id="parent">-->
+<!--            <div class="col" id="new_card">-->
+<!--              <div class="card shadow-sm">-->
+<!--                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img"-->
+<!--    &lt;!&ndash;                 aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title>&ndash;&gt;-->
+<!--    &lt;!&ndash;                <image href="{{ url_for('static', filename='images/user_img/22.jpg') }}" style="width:100%; height:100%;"></svg>&ndash;&gt;-->
+<!--                    <form method="POST" enctype="multipart/form-data" action="{{ user_image }}" style="width:100%; height:100%;"></svg>-->
+<!--                <div class="card-body">-->
+<!--                  <p class="card-text">...</p>-->
+
+<!--                  <div class="d-flex justify-content-between align-items-center">-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        </div>-->
+<!--        &lt;!&ndash;-&#45;&#45;new card 여기까지&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&ndash;&gt;-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </div>
+<form id="searchForm" method="get" action="{{ url_for('photo._list') }}">
+    <input type="hidden" id="kw" name="kw" value="{{ kw or '' }}">
+    <input type="hidden" id="page" name="page" value="{{ page }}">
+</form>
+{% endblock %}
+{% block script %}
+<script type='text/javascript'>
+const page_elements = document.getElementsByClassName("page-link");
+Array.from(page_elements).forEach(function(element) {
+    element.addEventListener('click', function() {
+        document.getElementById('page').value = this.dataset.page;
+        document.getElementById('searchForm').submit();
+    });
+});
+const btn_search = document.getElementById("btn_search");
+btn_search.addEventListener('click', function() {
+    document.getElementById('kw').value = document.getElementById('search_kw').value;
+    document.getElementById('page').value = 1;  // 검색버튼을 클릭할 경우 1페이지부터 조회한다.
+    document.getElementById('searchForm').submit();
+});
+</script>
+
+
+</main>
+</body>
+
 {% endblock %}

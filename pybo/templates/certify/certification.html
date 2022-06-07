@@ -94,27 +94,27 @@
 
   </head>
   <body>
-<header>
-<!--    <div class="navbar bg-dark" id="navbarHeader">-->
-    <div class="container">
-      <div class="row">
-<!--        <div class="col-sm-8 col-md-7 py-1">    #col-sm- : 수평으로 쌓임-->
-          <div class="col-sm-5">
-              <br>
-          <h4 class="text-black">운동 인증하기</h4>
-              <p class="text-muted">오늘의 운동을 사진으로 인증하고 별을 모아보세요</p>
-          </div>
+<!--<header>-->
+<!--&lt;!&ndash;    <div class="navbar bg-dark" id="navbarHeader">&ndash;&gt;-->
+<!--    <div class="container">-->
+<!--      <div class="row">-->
+<!--&lt;!&ndash;        <div class="col-sm-8 col-md-7 py-1">    #col-sm- : 수평으로 쌓임&ndash;&gt;-->
+<!--          <div class="col-sm-5">-->
+<!--              <br>-->
+<!--          <h4 class="text-black">운동 인증하기</h4>-->
+<!--              <p class="text-muted">오늘의 운동을 사진으로 인증하고 별을 모아보세요</p>-->
+<!--          </div>-->
 
-        <div class="col-sm-4 offset-md-1 py-4 align-self-end">
+<!--        <div class="col-sm-4 offset-md-1 py-4 align-self-end">-->
 
-            <div class="btn-group" style="text-black">
-<!--                <button type="button" class="btn btn-light"><a href="{{ url_for('certify.create') }}" style="text-decoration-line: none;">사진 등록</a></button>-->
-                <a href="{{ url_for('certify.create') }}" class="btn btn-primary">사진 등록</a>
-            </div>
-        </div>
-      </div>
-    </div>
-</header>
+<!--            <div class="btn-group" style="text-black">-->
+<!--&lt;!&ndash;                <button type="button" class="btn btn-light"><a href="{{ url_for('certify.create') }}" style="text-decoration-line: none;">사진 등록</a></button>&ndash;&gt;-->
+<!--                <a href="{{ url_for('certify.create') }}" class="btn btn-primary">사진 등록</a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--</header>-->
 
 <main>
 
@@ -132,149 +132,178 @@
 <!--  </section>-->
 
     <!--original, 사진 뒤 화면 하얀거 <div class="album py-5 bg-light">-->
-    <div class="album py-5">
 
+
+
+<!----------사진업로드 기능 시작------------>
     <div class="container">
+    <h5 class="my-3 border-bottom pb-2">사진 등록하기</h5>
+        <div class="form-group">
+            <header><h1 class="page-title">사진 업로드 하기</h1></header>
+            <p id="ac10138f-ebb1-4ec3-8bed-7c6c162558eb" class="">
+            <form method="POST" enctype="multipart/form-data" action="{{ url_for('certify.upload_done') }}">
+            <input type="file" name="file" id="imageFileOpenInput" accept="image/*"/>
+            <input type="submit" onchange="submitButton"/>
+            </p>
+        </div>
+    </div>
+<!-----------사진업로드 기능 여기까지------------------------->
 
+
+    <div class="album py-5">
+    <div class="container">
 <!--     original <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">-->
 <!--        한줄에 나타나는 카드 갯수 적는거. row-cols-md-5(한 row에 5개) g-5:카드사이 패딩-->
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-5">
-        <div class="col">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-5" id="photo_album">
+
+
+<!-- new card 1 -->
+        <div class="col" id="card-container">
           <div class="card shadow-sm">
             <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img"
                  aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title>
-                <image href="{{ url_for('static', filename='images/user_img/test1.jpg') }}" style="width:100%; height:100%;"></svg>
-
+                <image href="{{ url_for('static', filename='images/user_img/22.jpg') }}" style="width:100%; height:100%;"></svg>
             <div class="card-body">
-              <p class="card-text">사진올린 id, 날짜 표시하기</p>
+              <p class="card-text">사용자 이름넣고싶은데..</p>
 
               <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-<!--              original <button type="button" class="btn btn-sm btn-outline-secondary">크게 보기</button>-->
-<!--              original <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>-->
-                </div>
-<!--              original  <small class="text-muted">9 mins</small>-->
               </div>
             </div>
           </div>
         </div>
+<!-- new card 1 여기까지 -->
 
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img"
-                 aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title>
-                <image href="{{ url_for('static', filename='images/user_img/test2.jpg') }}" style="width:100%;"></svg>
 
-            <div class="card-body">
-              <p class="card-text">카드 텍스트를 입력하세요</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-<!--                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>-->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
 
-            <div class="card-body">
-              <p class="card-text"></p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-<!--                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>-->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
 
-            <div class="card-body">
-              <p class="card-text"></p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-<!--                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>-->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
 
-            <div class="card-body">
-              <p class="card-text"></p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-<!--                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>-->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
 
-            <div class="card-body">
-              <p class="card-text"></p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-<!--                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>-->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+    <!-------여기까지 카드바디 보류---------->
+<!--            <div class="col">-->
+<!--          <div class="card shadow-sm">-->
+<!--            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img"-->
+<!--                 aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title>-->
+<!--                <image href="{{ url_for('static', filename='images/user_img/test2.jpg') }}" style="width:100%;"></svg>-->
 
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+<!--            <div class="card-body">-->
+<!--              <p class="card-text">카드 텍스트를 입력하세요</p>-->
+<!--              <div class="d-flex justify-content-between align-items-center">-->
+<!--                <div class="btn-group">-->
+<!--&lt;!&ndash;                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>&ndash;&gt;-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="col">-->
+<!--          <div class="card shadow-sm">-->
+<!--            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>-->
 
-            <div class="card-body">
-              <p class="card-text"></p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-<!--                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>-->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+<!--            <div class="card-body">-->
+<!--              <p class="card-text"></p>-->
+<!--              <div class="d-flex justify-content-between align-items-center">-->
+<!--                <div class="btn-group">-->
+<!--&lt;!&ndash;                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>&ndash;&gt;-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
 
-            <div class="card-body">
-              <p class="card-text"></p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-<!--                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>-->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+<!--        <div class="col">-->
+<!--          <div class="card shadow-sm">-->
+<!--            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>-->
 
-            <div class="card-body">
-              <p class="card-text"></p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-<!--                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>-->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+<!--            <div class="card-body">-->
+<!--              <p class="card-text"></p>-->
+<!--              <div class="d-flex justify-content-between align-items-center">-->
+<!--                <div class="btn-group">-->
+<!--&lt;!&ndash;                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>&ndash;&gt;-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="col">-->
+<!--          <div class="card shadow-sm">-->
+<!--            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>-->
+
+<!--            <div class="card-body">-->
+<!--              <p class="card-text"></p>-->
+<!--              <div class="d-flex justify-content-between align-items-center">-->
+<!--                <div class="btn-group">-->
+<!--&lt;!&ndash;                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>&ndash;&gt;-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="col">-->
+<!--          <div class="card shadow-sm">-->
+<!--            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>-->
+
+<!--            <div class="card-body">-->
+<!--              <p class="card-text"></p>-->
+<!--              <div class="d-flex justify-content-between align-items-center">-->
+<!--                <div class="btn-group">-->
+<!--&lt;!&ndash;                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>&ndash;&gt;-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+
+<!--        <div class="col">-->
+<!--          <div class="card shadow-sm">-->
+<!--            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>-->
+
+<!--            <div class="card-body">-->
+<!--              <p class="card-text"></p>-->
+<!--              <div class="d-flex justify-content-between align-items-center">-->
+<!--                <div class="btn-group">-->
+<!--&lt;!&ndash;                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>&ndash;&gt;-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="col">-->
+<!--          <div class="card shadow-sm">-->
+<!--            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>-->
+
+<!--            <div class="card-body">-->
+<!--              <p class="card-text"></p>-->
+<!--              <div class="d-flex justify-content-between align-items-center">-->
+<!--                <div class="btn-group">-->
+<!--&lt;!&ndash;                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>&ndash;&gt;-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="col">-->
+<!--          <div class="card shadow-sm">-->
+<!--            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>-->
+
+<!--            <div class="card-body">-->
+<!--              <p class="card-text"></p>-->
+<!--              <div class="d-flex justify-content-between align-items-center">-->
+<!--                <div class="btn-group">-->
+<!--&lt;!&ndash;                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>&ndash;&gt;-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+           <!--------여기까지 카드바디 보류---------------->
+
+
+
+
+
+
+
       </div>
     </div>
   </div>

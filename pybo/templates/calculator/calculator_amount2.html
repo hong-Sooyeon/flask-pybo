@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!--{{ fruit }}-->
+
+<!--<label for="start">Start date:</label>-->
+<!--<input type="date" id="start" name="exercise-start" onchange="call()"-->
+<!--       value="2022-01-01"-->
+<!--       min="2022-01-01" max="2024-12-31">-->
+
+<!--<label for="end">End date:</label>-->
+
+<!--<input type="date" id="end" name="exercise-end" onchange="call()"-->
+<!--       value="2022-01-01"-->
+<!--       min="2022-01-01" max="2024-12-31">-->
+<!--신청금액 <input type="text" id="money"><br>-->
+<!--계산하기 <input type="submit"><br>-->
+
+<!--<b>ⓨ</b> 연차이 계산 : <input type="text" id="years" size="5" style="text-align:center;">  /-->
+<!--<b>ⓜ</b> 개월수 계산 : <input type="text" id="months" size="5" style="text-align:center;">  /-->
+<!--<b>ⓓ</b> 일차이 계산 : <input type="text" id="days" size="6" style="text-align:center;">-->
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1,
+        shrink-to-fit=no">
+        <link rel="stylesheet" href="
+        https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <title>Exercise Calculator</title>
+    </head>
+
+        <body>
+        <div class='container' style='padding-top:50px'>
+            <h1>Exercise Calculator</h1>
+            <hr>
+            <br>
+
+            <form method='post'>
+
+        <div class='form-group row'>
+            <div class='col-sm-6'>
+                <label>월 수강료를 입력하세요</label>
+                </div>
+            <div class='cold-sm-6'>
+                <input type='number' class='form-control' name='tuition_fee'
+                       value="{{tuition_fee}}">
+                </div>
+        </div>
+
+        <div class='form-group row'>
+            <div class='col-sm-6'>
+                <button type='submit' class='btn btn-primary'>계산하기</button>
+            </div>
+        </div>
+            <div>
+                <p style='font-weight:bold; font-size: 30px; color: green'>지원금액: {{ result }}원</p>
+            </div>
+            </form>
+        </div>
+    </body>
+
+</html>
+
+
+
+
+{% endblock %}
+
+{% block script %}
+
+
+
+<script>
+const fruit = "apple";
+console.log("This is Fruit==" + fruit);
+
+function call() {
+   const start = document.getElementById("start").value;
+   console.info("start=" + start);
+   const end = document.getElementById("end").value;
+   console.info("
+}
+
+</script>
+{% endblock %}

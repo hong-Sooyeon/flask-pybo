@@ -96,6 +96,17 @@
                     <a class="nav-link" href="{{ url_for('mypage.modify_info') }}">마이페이지</a>
                 </li>
                 <!--여기까지 변경사항-->
+
+                <!------------test용으로 하나 만든거 시작-------------------->
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('test3.upload_file') }}">test페이지</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('photo._list') }}">photo폴더페이지</a>
+                </li>
+                <!-------------------test용으로 만든거 여기까지--------------------------------->
+
+
             </ul>
             {% endif %}
         </div>

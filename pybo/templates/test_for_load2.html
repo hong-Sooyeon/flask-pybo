@@ -1,0 +1,214 @@
+{% extends 'base.html' %}
+{% block content %}
+<!--<div class="container my-3">-->
+<!--    <div class="row my-3">-->
+<!--        <div class="col-6">-->
+<!--            &lt;!&ndash;아래 href에 사진등록하기 누르면 연동되는 페이지 url 넣기. url for 로&ndash;&gt;-->
+<!--            <a href="#" class="btn btn-primary">사진등록하기</a>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+    .container{
+        font-family: 'Do Hyeon', sans-serif;
+    }
+    </style>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.98.0">
+    <title>Album example · Bootstrap v5.2</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/album/">
+
+<!--<link href="/docs/5.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">-->
+
+<!--    &lt;!&ndash; Favicons &ndash;&gt;-->
+<!--<link rel="apple-touch-icon" href="/docs/5.2/assets/img/favicons/apple-touch-icon.png" sizes="180x180">-->
+<!--<link rel="icon" href="/docs/5.2/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">-->
+<!--<link rel="icon" href="/docs/5.2/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">-->
+<!--<link rel="manifest" href="/docs/5.2/assets/img/favicons/manifest.json">-->
+<!--<link rel="mask-icon" href="/docs/5.2/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">-->
+<!--<link rel="icon" href="/docs/5.2/assets/img/favicons/favicon.ico">-->
+<!--<meta name="theme-color" content="#712cf9">-->
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+    </style>
+
+
+  </head>
+  <body>
+<!--<header>-->
+<!--&lt;!&ndash;    <div class="navbar bg-dark" id="navbarHeader">&ndash;&gt;-->
+<!--    <div class="container">-->
+<!--      <div class="row">-->
+<!--&lt;!&ndash;        <div class="col-sm-8 col-md-7 py-1">    #col-sm- : 수평으로 쌓임&ndash;&gt;-->
+<!--          <div class="col-sm-5">-->
+<!--              <br>-->
+<!--          <h4 class="text-black">운동 인증하기</h4>-->
+<!--              <p class="text-muted">오늘의 운동을 사진으로 인증하고 별을 모아보세요</p>-->
+<!--          </div>-->
+
+<!--        <div class="col-sm-4 offset-md-1 py-4 align-self-end">-->
+
+<!--            <div class="btn-group" style="text-black">-->
+<!--&lt;!&ndash;                <button type="button" class="btn btn-light"><a href="{{ url_for('certify.create') }}" style="text-decoration-line: none;">사진 등록</a></button>&ndash;&gt;-->
+<!--                <a href="{{ url_for('certify.create') }}" class="btn btn-primary">사진 등록</a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--</header>-->
+
+<main>
+
+<!--  <section class="py-5 text-center container">-->
+<!--    <div class="row py-lg-5">-->
+<!--      <div class="col-lg-6 col-md-8 mx-auto">-->
+<!--        <h1 class="fw-light">Album example</h1>-->
+<!--        <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>-->
+<!--        <p>-->
+<!--          <a href="#" class="btn btn-primary my-2">Main call to action</a>-->
+<!--          <a href="#" class="btn btn-secondary my-2">Secondary action</a>-->
+<!--        </p>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </section>-->
+
+    <!--original, 사진 뒤 화면 하얀거 <div class="album py-5 bg-light">-->
+
+
+
+<!----------사진업로드 기능 시작------------>
+    <div class="container">
+    <h5 class="my-3 border-bottom pb-2">사진 등록하기</h5>
+        <div class="form-group">
+            <header><h1 class="page-title">사진 업로드 하기</h1></header>
+            <p id="ac10138f-ebb1-4ec3-8bed-7c6c162558eb" class="">
+            <form method="POST" enctype="multipart/form-data" action="{{ url_for('certify.upload_done') }}">
+            <input type="file" name="file" id="imageFileOpenInput" accept="image/*"/>
+            <input type="button" value="사진 등록" onclick="doAdd();"></button>
+            </p>
+        </div>
+    </div>
+<!-----------사진업로드 기능 여기까지------------------------->
+
+
+    <div class="album py-5">
+    <div class="container">
+<!--     original <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">-->
+<!--        한줄에 나타나는 카드 갯수 적는거. row-cols-md-5(한 row에 5개) g-5:카드사이 패딩-->
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-5" id="parent">
+
+
+<!-- new card 1 -->
+        <div class="col" id="new_card">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img"
+                 aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title>
+<!--                <image href="{{ url_for('static', filename='images/user_img/22.jpg') }}" style="width:100%; height:100%;"></svg>-->
+                <image href="{{ url_for('static', filename='images/user/{}.jpg') }}" style="width:100%; height:100%;"></svg>
+            <div class="card-body">
+              <p class="card-text">사용자 이름넣고싶은데..</p>
+
+              <div class="d-flex justify-content-between align-items-center">
+              </div>
+            </div>
+          </div>
+        </div>
+<!-- new card 1 여기까지 -->
+      </div>
+    </div>
+  </div>
+
+</main>
+
+
+
+
+
+<footer class="text-muted py-5">
+  <div class="container">
+    <p class="float-end mb-1">
+      <a href="#">위로 올라가기</a>
+    </p>
+  </div>
+</footer>
+
+
+  </body>
+</html>
+
+{% endblock %}
+
+{% block script %}
+<script>
+function doAdd(){
+    var obj = document.getElementById('parent');
+    var newDiv = document.createElement('div');
+    newDiv.innerHTML = document.getElementById('new_card').innerHTML;
+    newDiv.setAttribute('id', 'myDiv');
+    newDiv.onclick = function() {
+        var p = this.parentElement;
+        p.removeChild(this);
+    };
+    obj.appendChild(newDiv);
+}
+</script>
+{% endblock %}

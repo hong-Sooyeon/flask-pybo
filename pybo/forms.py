@@ -28,3 +28,6 @@ class UserConfirmForm(FlaskForm):
     usernumber = IntegerField('행번', validators=[DataRequired()])
     password = PasswordField('하나포탈비밀번호', validators=[DataRequired()])
 
+class PhotoForm(FlaskForm):
+    # content = StringField('사진', validators=[DataRequired('사진은 필수입력 항목입니다.')])
+    content = StringField('사진')

@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% block content %}
+<!--<div class="container my-3">-->
+<!--    <div class="row my-3">-->
+<!--        <div class="col-6">-->
+<!--            &lt;!&ndash;아래 href에 사진등록하기 누르면 연동되는 페이지 url 넣기. url for 로&ndash;&gt;-->
+<!--            <a href="#" class="btn btn-primary">사진등록하기</a>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+    .container{
+        font-family: 'Do Hyeon', sans-serif;
+    }
+    </style>
+
+  <body>
+<main>
+
+<!----------사진업로드 기능 시작------------>
+    <div class="container">
+    <h5 class="my-3 border-bottom pb-2">사진 등록하기</h5>
+        <div class="form-group">
+            <header><h1 class="page-title">사진 업로드 하기</h1></header>
+            <p id="ac10138f-ebb1-4ec3-8bed-7c6c162558eb" class="">
+            <form method="POST" enctype="multipart/form-data" action="{{ url_for('test3.upload_file') }}">
+            <input type="file" name="file" id="imageFileOpenInput" accept="image/*"/>
+            <input type="button" value="사진 등록" onclick="doAdd();"></button>
+        </form>
+            </p>
+        </div>
+    </div>
+<!-----------사진업로드 기능 여기까지------------------------->
+
+
+    <div class="album py-5">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-5" id="parent">
+
+<!-- new card 1 -->
+        <div class="col" id="new_card">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img"
+<!--                 aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title>-->
+<!--                <image href="{{ url_for('static', filename='images/user_img/22.jpg') }}" style="width:100%; height:100%;"></svg>-->
+                <image src="{{ user_image }}" style="width:100%; height:100%;"></svg>
+            <div class="card-body">
+              <p class="card-text">...</p>
+
+              <div class="d-flex justify-content-between align-items-center">
+              </div>
+            </div>
+          </div>
+        </div>
+<!-- new card 1 여기까지 -->
+
+
+
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="text-muted py-5">
+  <div class="container">
+    <p class="float-end mb-1">
+      <a href="#">위로 올라가기</a>
+    </p>
+  </div>
+</footer>
+
+
+  </body>
+</html>
+
+{% endblock %}
+
+{% block script %}
+<script>
+function doAdd(){
+    var obj = document.getElementById('parent');
+    var newDiv = document.createElement('div');
+    newDiv.innerHTML = document.getElementById('new_card').innerHTML;
+    obj.appendChild(newDiv);
+    var currentDiv = document.getElementById('parent');
+    document.body.insertBefore(newDiv, currentDiv);
+}
+</script>
+{% endblock %}
