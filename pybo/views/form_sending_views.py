@@ -1,19 +1,48 @@
-from datetime import datetime
+# # email library
+# import os
+# import smtplib
+# from email import encoders
+# from email.header import Header
+# from email.mime.base import MIMEBase
+# from email.mime.multipart import MIMEMultipart
+# from email.mime.text import MIMEText
+from flask import request, render_template, Blueprint, app, flash, Flask
+#
+# # import sys
+# # from PyQt5.QtCore import *
+# # from PyQt5.QtGui import *
+# # from PyQt5.QtWebKit import *
+# #
+# # app = QApplication(sys.argv)
+# # w = QWebView()
+# # w.load(QUrl('https://www.delftstack.com'))
+# # p = Qp()
+# # p.setPageSize(Qp.A4)
+# # p.setOutputFormat(Qp.PdfFormat)
+# # p.setOutputFileName("sample.pdf")
+# #
+# # def convertIt():
+# #     w.print_(p)
+# #     QApplication.exit()
+# #
+# # QObject.connect(w, SIGNAL("loadFinished(bool)"), convertIt)
+# # sys.exit(app.exec_())f
 
-from flask import Blueprint, url_for, render_template, flash, request
-from werkzeug.utils import redirect
 
-from pybo import db
-from ..forms import AnswerForm
-from pybo.models import Question, Answer
-from .auth_views import login_required
+# from flask import Blueprint, url_for, render_template, flash, request
+# from werkzeug.utils import redirect
+#
+# from pybo import db
+# from ..forms import AnswerForm
+# from pybo.models import Question, Answer
+# from .auth_views import login_required
 
 
 bp = Blueprint('form_sending', __name__, url_prefix='/form_sending')
 #email library
 
 @bp.route('/email', methods=('GET', 'POST'))
-# @login_required
+
 def email_test():
     if request.method == 'POST':
         senders = request.form['email_sender']
@@ -33,6 +62,9 @@ def email_test():
     else:
         return render_template('form_sending/form_sending.html')
 
+
+
+
 @bp.route('/send_email', methods=('GET', 'POST'))
 # @login_required
 def send_email(senders, receiver, file, title, content):
@@ -42,12 +74,11 @@ def send_email(senders, receiver, file, title, content):
         msg['To'] = receiver
         msg['Subject'] = Header(title, 'euc-kr')  # 제목 인코딩
         msg.attach(MIMEText(content, 'plain', 'euc-kr'))  # 내용 인코딩
-        #msg.attach(MIMEText(html, 'html', 'euc-kr'))  # 내용 인코딩 2
-
+        # msg.attach(MIMEText(html, 'html', 'euc-kr'))  # 내용 인코딩 2
 
         # 아래 코드는 첨부파일이 있을 경우에만 주석처리 빼시면 됩니다.
         # 첨부 파일 보내기
-        filename = 'files/test.pdf'  # 첨부 파일 이름 이처럼 이름만쓰려면 같은 경로에 파일있어야됨 아니면 절대경로입력
+        filename = 'files/form.pdf'  # 첨부 파일 이름 이처럼 이름만쓰려면 같은 경로에 파일있어야됨 아니면 절대경로입력
         attachment = open(filename, 'rb')
 
         part = MIMEBase('application', 'octet-stream')
@@ -59,8 +90,8 @@ def send_email(senders, receiver, file, title, content):
         # Server config
         MAIL_SERVER = 'smtp.gmail.com'
         MAIL_PORT = 587
-        MAIL_USERNAME = 'mielhong@gmail.com'
-        APP_PASSWORD = '*********'
+        MAIL_USERNAME = 'hanabankhconnect@gmail.com'
+        APP_PASSWORD = 'huzxkxgtnczxgjpd'
 
         # Setting
         mailServer = smtplib.SMTP(MAIL_SERVER, MAIL_PORT)
@@ -74,6 +105,10 @@ def send_email(senders, receiver, file, title, content):
     except Exception:
         print('fail')
         pass
+
     finally:
         print('success')
         pass
+
+
+

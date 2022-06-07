@@ -16,3 +16,7 @@ def hello_pybo():
 @bp.route('/')
 def index():
     return redirect(url_for('hconnect.screen'))
+
+# @bp.route('/')
+# def index():
+#     return redirect(url_for('form_sending.form_sending'))
