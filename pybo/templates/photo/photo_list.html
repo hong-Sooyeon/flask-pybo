@@ -45,31 +45,33 @@
 
 
 
-    <table class="table bg-light">
+    <div class="table">
 <!--    <thead>-->
 <!--    <th>-->
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
         {% if photo_list %}
         {% for photo in photo_list.items %}
-        <tr class="text-center">
-            <td>{{ photo_list.total - ((photo_list.page-1) * photo_list.per_page) - loop.index0 }}
-            </td>
-            <td class="text-center">     <!----td 이거 지우면 카드 바탕 하얀거 없어짐------------->
+        <div class="text-center">
+            <div>{{ photo_list.total - ((photo_list.page-1) * photo_list.per_page) - loop.index0 }}
+            </div>
+<!--            <div class="text-center">     &lt;!&ndash;&#45;&#45;td 이거 지우면 카드 바탕 하얀거 없어짐-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&ndash;&gt;-->
+<!--                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-5" id="parent">-->
             <!-- new card 1 -->
-            <div class="album py-5">
-            <div class="container">
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-5" id="parent">
-                <div class="col" id="new_card">
-                  <div class="card shadow-sm">
-                    <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img">
-<!--                         aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title>-->
-                        <img src="{{ photo.content }}" style="width:100%; height:100%;"></svg>   <!---------여기 이미지경로 불러와서 사진 띄워야 하는데 안뜸------>
-<!--                        <img src="{{ photo.content }}/" style="width:100%; height:225">-->
-<!--                        <form method="POST" enctype="multipart/form-data" action="{{ url_for('static', filename='images/user/{}.jpg') }}" style="width:100%; height:100%;"></svg>-->
-                    <div class="card-body">
-                      <p class="card-text">...</p>
 
+            <div class="album py-1">
+            <div class="container">
+<!--                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-5" id="parent">-->
+                <div class="col">
+                  <div class="card shadow-sm">
+<!--                    <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img"-->
+<!--                         aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title>-->
+                      <img src="{{ photo.content }}" width="100%" height="350">   <!---------여기 이미지경로 불러와서 사진 띄워야 하는데 안뜸------>
+
+                    <div class="card-body">
+                      <p class="card-text">{{ photo.create_date|datetime }}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ photo.user.username }}</p>
                       <div class="d-flex justify-content-between align-items-center">
                       </div>
+
                     </div>
                   </div>
                 </div>
@@ -85,8 +87,10 @@
             <td colspan="3">게시물이 없습니다.</td>
         </tr>
         {% endif %}
-    </table>
+    </div>
 
+        <br>
+        <br>
 
     <!-- 페이징처리 시작 -->
     <ul class="pagination justify-content-center">
@@ -216,6 +220,7 @@ btn_search.addEventListener('click', function() {
     document.getElementById('page').value = 1;  // 검색버튼을 클릭할 경우 1페이지부터 조회한다.
     document.getElementById('searchForm').submit();
 });
+
 </script>
 
 
