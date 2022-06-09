@@ -41,7 +41,7 @@ from flask import request, render_template, Blueprint, app, flash, Flask
 bp = Blueprint('form_sending', __name__, url_prefix='/form_sending')
 #email library
 
-@bp.route('/email', methods=('GET', 'POST'))
+@bp.route('/form_sending', methods=('GET', 'POST'))
 
 def email_test():
     if request.method == 'POST':
@@ -78,7 +78,8 @@ def send_email(senders, receiver, file, title, content):
 
         # 아래 코드는 첨부파일이 있을 경우에만 주석처리 빼시면 됩니다.
         # 첨부 파일 보내기
-        filename = 'files/form.pdf'  # 첨부 파일 이름 이처럼 이름만쓰려면 같은 경로에 파일있어야됨 아니면 절대경로입력
+        file.save(secure_filename(file.filename))
+        filename = file.filename  # 첨부 파일 이름 이처럼 이름만쓰려면 같은 경로에 파일있어야됨 아니면 절대경로입력
         attachment = open(filename, 'rb')
 
         part = MIMEBase('application', 'octet-stream')
@@ -90,8 +91,8 @@ def send_email(senders, receiver, file, title, content):
         # Server config
         MAIL_SERVER = 'smtp.gmail.com'
         MAIL_PORT = 587
-        MAIL_USERNAME = 'hanabankhconnect@gmail.com'
-        APP_PASSWORD = 'huzxkxgtnczxgjpd'
+        MAIL_USERNAME = 'rlaqks2@gmail.com'
+        APP_PASSWORD = 'mxkdwcprhhxhrqpu'
 
         # Setting
         mailServer = smtplib.SMTP(MAIL_SERVER, MAIL_PORT)

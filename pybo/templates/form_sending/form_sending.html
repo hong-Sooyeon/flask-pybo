@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
-    <style>
+<style>
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
@@ -17,7 +17,7 @@
       }
 
       .b-example-divider {
-        height: 3rem;
+        height: 3 rem;
         background-color: rgba(0, 0, 0, .1);
         border: solid rgba(0, 0, 0, .15);
         border-width: 1px 0;
@@ -46,7 +46,7 @@
         display: flex;
         flex-wrap: nowrap;
         padding-bottom: 1rem;
-        margin-top: -1px;
+        margin-top: -10px;
         overflow-x: auto;
         text-align: center;
         white-space: nowrap;
@@ -56,186 +56,281 @@
       .container{
         font-family: 'Do Hyeon', sans-serif;
     }
-    </style>
+
+
+</style>
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script type = "text/javascript" src = "http://code.jquery.com/jquery-latest.min.js"></script>
-    <script type = "text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
-    <script type = "text/javascript" src = "https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
-
-
-    <title>Document</title>
-</head>
-<body>
-    <div id="document">
-        <div class="container">
-        <main>
-    <div class="py-5 text-center">
-      <img class="d-block mx-auto mb-4">
-      <h1>수강확인서</h1>
-      <p class="lead">수강기관의 자체 수강증 또는 계약서가 없거나 발급 불가한 경우,<br/>아래 양식으로 사용 하시면 됩니다.</p>
-    </div>
-
-       <div class="row g-5">
-      <div class="col-md-7 col-lg-8">
-        <h4 class="mb-3">인적사항</h4>
-          <form class="needs-validation" novalidate>
-          <div class="row g-3">
-
-            <div class="col-sm-6">
-              <label for="idnumber" class="form-label">행번</label>
-              <input type="text" class="form-control" id="idNumber" placeholder="" value="" required>
-              <div class="invalid-feedback">
-                Valid Id Number is required.
-              </div>
-            </div>
-
-            <div class="col-sm-6">
-              <label for="username" class="form-label">성명</label>
-              <input type="text" class="form-control" id="username" placeholder="" value="" required>
-              <div class="invalid-feedback">
-                Valid user name is required.
-              </div>
-            </div>
-
-              <div class="col-sm-6">
-              <label for="branchname" class="form-label">부점명</label>
-              <input type="text" class="form-control" id="branchname" placeholder="" value="" required>
-              <div class="invalid-feedback">
-                Valid branch name is required.
-              </div>
-            </div>
-
-              <div class="col-sm-6">
-              <label for="position" class="form-label">직급</label>
-              <input type="text" class="form-control" id="position" placeholder="" value="" required>
-              <div class="invalid-feedback">
-                Valid position is required.
-              </div>
-            </div>
-          </div>
-          <hr class="my-4">
-          <h4 class="mb-3">수강상세내역</h4>
-
-          <div class="row gy-3">
-              <div class="col-md-6">
-              <label class="form-label">수강과목</label>
-              <div class="input-group mb-3">
-              <label class="input-group-text" for="inputGroupSelect01">운동선택</label>
-              <select class="form-select" id="inputGroupSelect01">
-                <option selected>Choose...</option>
-                <option value="1">1.헬스(GX,스피닝 포함)</option>
-                <option value="2">1-1.헬스레슨</option>
-                <option value="3">2.수영</option>
-                <option value="4">2-1.수영레슨</option>
-                <option value="5">3.골프</option>
-                <option value="6">3-1.골프레슨</option>
-                <option value="7">4.요가</option>
-                <option value="8">5.에어로빅</option>
-                <option value="9">6.필라테스</option>
-                <option value="10">7.테니스</option>
-                <option value="11">7-1.테니스레슨</option>
-                <option value="12">8.탁구</option>
-                <option value="13">9.스쿼시</option>
-                <option value="14">10.복싱(격투기 종목)</option>
-                <option value="15">11.배드민턴</option>
-                <option value="16">11-1.배드민턴 레슨</option>
-                <option value="17">12.기타</option>
-              </select>
-            </div>
-          </div>
-          </div>
-
-              <label class="form-label">수강기간</label>
-
-            <div class="row g-3">
-
-            <div class="col-sm-6">
-              <label for="fromDate" class="form-label">시작일자</label>
-              <input type="text" class="form-control" id="fromDate" placeholder="" value="" required>
-            </div>
-
-            <div class="col-sm-6">
-              <label for="toDate" class="form-label">종료일자</label>
-              <input type="text" class="form-control" id="toDate" placeholder="" value="" required>
-            </div>
-          </div>
-
-           <div class="row g-3">
-            <div class="col-sm-6">
-              <label for="amount" class="form-label">수강신청금액</label>
-              <input type="text" class="form-control" id="amount" placeholder="" value="" required>
-            </div>
-
-            <div class="col-sm-6">
-              <label for="payDate" class="form-label">결제일</label>
-              <input type="text" class="form-control" id="payDate" placeholder="" value="" required>
-            </div>
-            </div>
-
-              <hr class="my-4">
-          <h4 class="mb-3">기관정보</h4>
-
-          <div class="row g-3">
-              <div class="col-md-6">
-
-              <label for="centerName" class="form-label">기관명</label>
-              <input type="text" class="form-control" id="centerName" placeholder="" value="" required>
-            </div>
-
-              <div class="col-sm-6">
-              <label for="representativeName" class="form-label">대표자이름</label>
-              <input type="text" class="form-control" id="representativeName" placeholder="" value="" required>
-            </div>
-
-              <div class="col-sm-6">
-              <label for="businessId" class="form-label">사업자등록번호</label>
-              <input type="text" class="form-control" id="businessId" placeholder="" value="" required>
-            </div>
-
-              <div class="col-sm-6">
-              <label for="telephone" class="form-label">전화번호</label>
-              <input type="text" class="form-control" id="telephone" placeholder="" value="" required>
-            </div>
-
-              <div class="col-sm-6">
-              <label for="address" class="form-label">주소</label>
-              <input type="text" class="form-control" id="address" placeholder="" value="" required>
-            </div>
-
-
-             <hr class="my-4">
-              <div class='textbottom' align="center">위 수강생에 대하여 수강 사실을 확인합니다.<br/><br/>
-              년&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp월&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp일<br/><br/>
-              기관명(&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp)(명판 or 직인)&nbsp;서명불가<br/>
-            </div>
-              <br/><br/>※ 수강 확인을 위하여 은행에서 귀 시설로 방문 / 전화 드릴 수 있는 점 양해 바랍니다.&nbsp;
-                <hr class="my-4">
-
-</form>
-     </div>
-        </div>
-        </div>
-        </div>
-
-    <div class="buttons" align="left">
-    <button type="button" class="btn btn-primary btn-lg" onclick="generatePDF()">파일로 저장하기</button>
-    <button type="button" class="btn btn-secondary btn-lg" id="create_pdf">메일로 전송하기</button>
-
-        <script type = "text/javascript" src = "http://code.jquery.com/jquery-latest.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=0.8">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="./jquery-3.4.1.min.js"></script>
+    <link href="form-validation.css" rel="stylesheet">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
     <script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 
+    <title>sending form</title>
 
-</body></div>
+</head>
+
+<body>
+
+<div class="container" id="document">
+    <main>
+        <!--                큰사이즈 중간정렬 제목-->
+        <!--                <div class="py-5 text-center">-->
+        <!--      <img class="d-block mx-auto mb-4">-->
+        <!--      <h1>수강확인서</h1>-->
+        <!--      <p>수강기관의 자체 수강증 또는 계약서가 없거나 발급 불가한 경우, 아래 양식으로 사용 하시면 됩니다.</p>-->
+        <!--    </div>-->
+
+        <div class="row">
+            <div class="col-sm-7">
+                <br>
+                <h4 class="text-black">수강확인서</h4>
+                <p class="text-muted">수강기관의 자체 수강증 또는 계약서가 없거나 발급 불가한 경우, 아래 양식으로 사용 하시면 됩니다.</p>
+            </div>
+
+        </div>
 
 
-<script>
+        <div class="row g-5">
+            <div class="col-md-7 col-lg-8">
+                <!--                    <h5 class="mb-3">인적사항</h5>-->
+                <form class="needs-validation" novalidate>
+                    <div class="row g-3">
+
+                        <div class="col-sm-6">
+                            <label for="idnumber" class="form-label">행번</label>
+                            <input type="text" class="form-control" id="idNumber" placeholder="" value="" required>
+                            <div class="invalid-feedback">
+                                Valid Id Number is required.
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label for="username" class="form-label">성명</label>
+                            <input type="text" class="form-control" id="username" placeholder="" value="" required>
+                            <div class="invalid-feedback">
+                                Valid user name is required.
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label for="branchname" class="form-label">부점명</label>
+                            <input type="text" class="form-control" id="branchname" placeholder="" value=""
+                                   required>
+                            <div class="invalid-feedback">
+                                Valid branch name is required.
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label for="position" class="form-label">직급</label>
+                            <input type="text" class="form-control" id="position" placeholder="" value="" required>
+                            <div class="invalid-feedback">
+                                Valid position is required.
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="my-4">
+                    <!--                        <h5 class="mb-3">수강상세내역</h5>-->
+
+                    <div class="row gy-3">
+                        <div class="col-md-6">
+                            <label class="form-label">수강과목</label>
+                            <div class="input-group mb-3">
+                                <label class="input-group-text" for="inputGroupSelect01">운동선택</label>
+                                <select class="form-select" id="inputGroupSelect01">
+                                    <option selected>Choose...</option>
+                                    <option value="1">1.헬스(GX,스피닝 포함)</option>
+                                    <option value="2">1-1.헬스레슨</option>
+                                    <option value="3">2.수영</option>
+                                    <option value="4">2-1.수영레슨</option>
+                                    <option value="5">3.골프</option>
+                                    <option value="6">3-1.골프레슨</option>
+                                    <option value="7">4.요가</option>
+                                    <option value="8">5.에어로빅</option>
+                                    <option value="9">6.필라테스</option>
+                                    <option value="10">7.테니스</option>
+                                    <option value="11">7-1.테니스레슨</option>
+                                    <option value="12">8.탁구</option>
+                                    <option value="13">9.스쿼시</option>
+                                    <option value="14">10.복싱(격투기 종목)</option>
+                                    <option value="15">11.배드민턴</option>
+                                    <option value="16">11-1.배드민턴 레슨</option>
+                                    <option value="17">12.기타</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <label for="fromDate" class="form-label">수강시작일자</label>
+                            <input type='date' class="form-control" id='fromDate' placeholder="" value="" required/>
+                            <script>
+              document.getElementById('currentDate').value = new Date().toISOString().substring(0, 10);;
+
+
+
+
+
+
+
+
+                            </script>
+                        </div>
+                        <!--              <input type="text" class="form-control" id="fromDate" placeholder="" value="" required>-->
+                        <!--            </div>-->
+                        <div class="col-sm-6">
+                            <label for="toDate" class="form-label">수강종료일자</label>
+                            <form>
+                                <input type='date' class="form-control" id='toDate' placeholder="" value=""
+                                       required/>
+                            </form>
+                            <script>
+              document.getElementById('currentDate').value = new Date().toISOString().substring(0, 10);;
+
+
+
+
+
+
+
+
+                            </script>
+                        </div>
+                        <!--                <input type="text" class="form-control" id="toDate" placeholder="" value="" required>-->
+                        <!--            </div>-->
+
+                    </div>
+
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <label for="amount" class="form-label">수강신청금액</label>
+                            <input type="text" class="form-control" id="amount" placeholder="" value="" required>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label for="payDate" class="form-label">결제일</label>
+                            <input type="text" class="form-control" id="payDate" placeholder="" value="" required>
+                        </div>
+                    </div>
+
+                    <hr class="my-4">
+                    <!--                        <h5 class="mb-3">기관정보</h5>-->
+
+                    <div class="row g-3">
+                        <div class="col-md-6">
+
+                            <label for="centerName" class="form-label">기관명</label>
+                            <input type="text" class="form-control" id="centerName" placeholder="" value=""
+                                   required>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label for="representativeName" class="form-label">대표자이름</label>
+                            <input type="text" class="form-control" id="representativeName" placeholder="" value=""
+                                   required>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label for="businessId" class="form-label">사업자등록번호</label>
+                            <input type="text" class="form-control" id="businessId" placeholder="" value=""
+                                   required>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label for="telephone" class="form-label">전화번호</label>
+                            <input type="text" class="form-control" id="telephone" placeholder="" value="" required>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label for="address" class="form-label">주소</label>
+                            <input type="text" class="form-control" id="address" placeholder="" value="" required>
+                        </div>
+
+
+                        <hr class="my-6">
+                        <div class='textbottom' align="center">위 수강생에 대하여 수강 사실을 확인합니다.
+                            <div id="current_date"></p>
+                                <script>
+                                        date = new Date();
+                                        year = date.getFullYear();
+                                        month = date.getMonth() + 1;
+                                        day = date.getDate();
+                                        document.getElementById("current_date").innerHTML = year + " 년 " + month + " 월 " + day + " 일 ";
+
+
+
+
+                                </script>
+                            </div>
+                            기관명(&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp)(명판
+                            or 직인)&nbsp;서명불가<br/>
+                            ※ 수강 확인을 위하여 은행에서 귀 시설로 방문 / 전화 드릴 수 있는 점 양해 바랍니다.&nbsp;
+                        </div>
+                        <hr class="my-4">
+                </form>
+            </div>
+        </div>
+</div>
+</div>
+
+</body>
+
+<div class="col-md-9 text-center">
+    <button type="button" class="btn btn-primary btn-lg" onclick="generatePDF()">파일로 저장하기</button>
+    <button type="button" class="btn btn-secondary btn-lg" data-bs-toggle="modal" data-bs-target="#Modal">메일로
+        전송하기
+    </button>
+
+    <div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">수강확인서 email 보내기</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+
+                    <form action="/form_sending/form_sending" method="POST" enctype="multipart/form-data">
+
+                        <div class="mb-3">
+                            <label for="email_receiver" class="col-form-label">메일 수신인:</label>
+                            <input type="text" class="form-control" id="email_receiver">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email_title" class="col-form-label">메일 제목:</label>
+                            <input type="text" class="form-control" id="email_title"></input>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email_file" class="col-form-label">메일 제목:</label>
+                            <input type="file" class="form-control" id="email_file"></input>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email_content" class="col-form-label">메일 내용:</label>
+                            <textarea class="form-control" id="email_content"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" value=SEND>Send email</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    </body>
+
+
+    <script>
     function generatePDF(){
         console.log("pdf다운로드");
         var element = document.getElementById("document");
@@ -243,27 +338,38 @@
         html2pdf()
         .from(element)
         .set({
-            margin: 5,
+            margin: 1,
+            image: { type: 'pdf', quality: 0.98 },
             filename: 'documentForm.pdf',
-            html2canvas: { scale : 1 },
+            html2canvas: {windowWidth : 1000, windowHeight : 400, x: 1, y: 1, scrollY:0, scrollX:0, scale:0.8, dpi: 600, letterRendering: true, allowTaint: true},
             jsPDF: {orientation: 'portrait', unit: 'mm', format: 'a4', compressPDF: 'true'}
             })
-        .save();
+        .save()
     }
-</script>
 
-<script>
-   $('#create_pdf').click(function() {  //pdf_wrap을 canvas객체로 변환
-  html2canvas($('#document')[0]).then(function(canvas) {
-    var doc = new jsPDF('p', 'mm', 'a4'); //jspdf객체 생성
-    var imgData = canvas.toDataURL('image/png'); //캔버스를 이미지로 변환
-    doc.addImage(imgData, 'PNG', 0, 0); //이미지를 기반으로 pdf생성
-    doc.save('sample-file.pdf'); //pdf저장
-  });
+
+
+
+
+    </script>
+
+    <script type="text/javascript">
+$(document).ready(function() {
+    $("#openModalPop").click(function() {
+        $("#banner_online").fadeIn();
+        $("#modal").fadeIn();
+    });
+
+    $("#close_button").click(function(){
+        $("#banner_online").fadeOut();
+        $("#modal").fadeOut();
+    });
 });
 
-</script>
 
-</html>
+    </script>
 
-{% endblock %}
+
+    </html>
+
+    {% endblock %}

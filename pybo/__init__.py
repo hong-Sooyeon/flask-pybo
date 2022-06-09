@@ -32,7 +32,7 @@ def create_app():
     # 블루프린트
     from .views import main_views, question_views, answer_views, auth_views, exercise_views, calculator_views, \
         form_sending_views, apply_views, complete_views, certify_views, mypage_views, hconnect_views, test_views, \
-        test2_views, test3_views, test4_views, photo_views
+        test2_views, test3_views, test4_views, photo_views, hongtest
     app.register_blueprint(main_views.bp)
     app.register_blueprint(question_views.bp)
     app.register_blueprint(answer_views.bp)
@@ -50,7 +50,7 @@ def create_app():
     app.register_blueprint(test3_views.bp)
     app.register_blueprint(test4_views.bp)
     app.register_blueprint(photo_views.bp)
-
+    app.register_blueprint(hongtest.bp)
 
 
     # 필터
@@ -64,3 +64,4 @@ def create_app():
     app.register_error_handler(404, page_not_found)
 
     return app
+
