@@ -15,6 +15,7 @@ app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @bp.route('/photo_list/')
+@login_required
 def _list():
     page = request.args.get('page', type=int, default=1)
     kw = request.args.get('kw', type=str, default='')
@@ -55,15 +56,13 @@ def create():
         return redirect(url_for('photo._list'))
     return render_template('photo/photo_form.html', form=form)
 
-
-#delete 안됨
-# @bp.route('/photo_delete/<int:question_id>')
-# @login_required
-# def delete(photo_id):
-#     photo = Photo.query.get_or_404(photo_id)
-#     if g.user != photo.user:
-#         flash('삭제권한이 없습니다')
-#         return redirect(url_for('photo._list', photo_id=photo_id))
-#     db.session.delete(photo)
-#     db.session.commit()
-#     return redirect(url_for('photo._list'))
+@bp.route('/photo_delete/<int:user_id>')
+@login_required
+def delete(user_id):
+    photo = Photo.query.get_or_404(user_id)
+    if g.user != photo.user:
+        flash('삭제권한이 없습니다')
+        return redirect(url_for('photo._list'))
+    db.session.delete(photo)
+    db.session.commit()
+    return redirect(url_for('photo.create'))

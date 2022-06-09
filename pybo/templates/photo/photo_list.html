@@ -69,9 +69,22 @@
 
                     <div class="card-body">
                       <p class="card-text">{{ photo.create_date|datetime }}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ photo.user.username }}</p>
+
+
+
+
+                        <!-------사진 삭제기능------------------------------>
+                        {% if g.user == photo.user %}
+                        <a href="javascript" class="delete btn btn-sm btn-outline-secondary"
+                       data-uri="{{ url_for('photo.delete', user_id=photo.user_id) }}">삭제</a>
+                        {% endif %}
+                        <!----------사진삭제기능-------------------->
+
+
+
+
                       <div class="d-flex justify-content-between align-items-center">
                       </div>
-
                     </div>
                   </div>
                 </div>
@@ -135,70 +148,6 @@
     <!-- 페이징처리 끝 -->
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!------original----------->
-<!--    <table class="table bg-light">-->
-<!--&lt;!&ndash;    <thead>&ndash;&gt;-->
-<!--&lt;!&ndash;    <th>&ndash;&gt;-->
-<!--    &lt;!&ndash; new card 1 &ndash;&gt;-->
-<!--        <div class="album py-5">-->
-<!--        <div class="container">-->
-<!--            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-5" id="parent">-->
-<!--            <div class="col" id="new_card">-->
-<!--              <div class="card shadow-sm">-->
-<!--                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img"-->
-<!--    &lt;!&ndash;                 aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title>&ndash;&gt;-->
-<!--    &lt;!&ndash;                <image href="{{ url_for('static', filename='images/user_img/22.jpg') }}" style="width:100%; height:100%;"></svg>&ndash;&gt;-->
-<!--                    <form method="POST" enctype="multipart/form-data" action="{{ user_image }}" style="width:100%; height:100%;"></svg>-->
-<!--                <div class="card-body">-->
-<!--                  <p class="card-text">...</p>-->
-
-<!--                  <div class="d-flex justify-content-between align-items-center">-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        </div>-->
-<!--        &lt;!&ndash;-&#45;&#45;new card 여기까지&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&ndash;&gt;-->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </div>
 <form id="searchForm" method="get" action="{{ url_for('photo._list') }}">
     <input type="hidden" id="kw" name="kw" value="{{ kw or '' }}">
@@ -206,6 +155,7 @@
 </form>
 {% endblock %}
 {% block script %}
+
 <script type='text/javascript'>
 const page_elements = document.getElementsByClassName("page-link");
 Array.from(page_elements).forEach(function(element) {
@@ -221,8 +171,19 @@ btn_search.addEventListener('click', function() {
     document.getElementById('searchForm').submit();
 });
 
-</script>
 
+
+<!--delete 팝업위해 추가한거-->
+
+const delete_elements = document.getElementsByClassName("delete");
+Array.from(delete_elements).forEach(function(element) {
+    element.addEventListener('click', function() {
+        if(confirm("정말로 삭제하시겠습니까?")) {
+            location.href = this.dataset.uri;
+        };
+    });
+});
+</script>
 
 </main>
 </body>
