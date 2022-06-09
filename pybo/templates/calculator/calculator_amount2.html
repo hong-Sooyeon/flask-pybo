@@ -50,11 +50,35 @@
 
         <div class='form-group row'>
             <div class='col-sm-6'>
+                <label>시작일자를 입력하세요</label>
+                </div>
+            <div class='cold-sm-6'>
+                <input type='date' class='form-control' name='start_date'
+                       value="{{start_date}}">
+                </div>
+        </div>
+
+        <div class='form-group row'>
+            <div class='col-sm-6'>
+                <label>종료일자를 입력하세요</label>
+                </div>
+            <div class='cold-sm-6'>
+                <input type='date' class='form-control' name='end_date'
+                       value="{{end_date}}">
+                </div>
+        </div>
+
+        <div class='form-group row'>
+            <div class='col-sm-6'>
+                <br>
+                <br>
                 <button type='submit' class='btn btn-primary'>계산하기</button>
             </div>
         </div>
             <div>
-                <p style='font-weight:bold; font-size: 30px; color: green'>지원금액: {{ result }}원</p>
+                <p style='font-weight:bold; font-size: 30px; color: green'>지원 가능 금액: {{ result }}원
+                    <br>지원 가능 기간: {{ period }}개월
+                    <br>총 지원 예상 금액: {{ amount }}원</p>
             </div>
             </form>
         </div>

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<!--{{ fruit }}-->
+
 
 <!--<label for="start">Start date:</label>-->
 <!--<input type="date" id="start" name="exercise-start" onchange="call()"-->
@@ -46,6 +46,29 @@
                 </div>
         </div>
 
+
+        <div class='form-group row'>
+            <div class='col-sm-6'>
+                <label>시작일자를 입력하세요</label>
+            </div>
+        </div>
+        <div class='cold-sm-6'>
+            <input type='date' class='form-control' name='start_date'
+                   placeholder='시작일'>
+        </div>
+
+        <div class='form-group row'>
+            <div class='col-sm-6'>
+                <label>종료일자를 입력하세요</label>
+            </div>
+        </div>
+        <div class='cold-sm-6'>
+            <input type='date' class='form-control' name='end_date'
+                   placeholder='종료일'>
+        </div>
+
+
+
         <div class='form-group row'>
             <div class='col-sm-6'>
                 <button type='submit' class='btn btn-primary'>계산하기</button>
@@ -58,6 +81,7 @@
         </div>
             </form>
         </div>
+
         </body>
 </html>
 
@@ -71,14 +95,13 @@
 
 
 <script>
-const fruit = "apple";
-console.log("This is Fruit==" + fruit);
+const now = new Date();
 
-function call() {
-   const start = document.getElementById("start").value;
-   console.info("start=" + start);
-   const end = document.getElementById("end").value;
-   console.info("
+fuction input() {
+  const dday = new Date(document.querySelector("#input_date").value);
+  const passedTime = now.getTime()-dday.getTime();
+  const passedDay = Math.round(passedTime/(24*60*60*1000));
+  document.querySelector("accent").innerHTML = passedDay+"일";
 }
 
 </script>
