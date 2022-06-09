@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container" style="text-align: center;">
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+    .container{
+        font-family: 'Do Hyeon', sans-serif;
+    }
+    </style>
+    <h5 class="my-3 border-bottom pb-2"><strong>계정생성 첫단계,<br>행번과 하나포탈 비밀번호로<br>HANABANK 직원임을 인증해주세요</strong></h5>
+    <form method="post">
+        {{ form.csrf_token }}
+        {% include "form_errors.html" %}
+        <div class="mb-3">
+            <label for="usernumber">행번</label>
+            <input type="number" class="form-control" name="usernumber" id="usernumber"
+                   value="{{ form.usernumber.data or '' }}" style="width:300px;height:50px;font-size:20px;
+                   text-align:center; display:block; margin: 0 auto;">
+        </div>
+        <div class="mb-3">
+            <label for="password">하나포탈비밀번호</label>
+            <input type="password" class="form-control" name="password" id="password"
+                   value="{{ form.password.data or '' }}" style="width:300px;height:50px;font-size:20px;
+                   text-align:center; display:block; margin: 0 auto;">
+        </div>
+
+        <button type="submit" class="btn btn-primary">확인하기</button>
+    </form>
+</div>
+{% endblock %}

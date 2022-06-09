@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container" style="text-align: center;">
+        <style>
+    @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+    .container{
+        font-family: 'Do Hyeon', sans-serif;
+    }
+    </style>
+    <h5 class="my-3 border-bottom pb-2"><strong>하나은행 직원님 환영합니다.<br>HCONNECT 계정을 만들어주세요</strong></h5>
+    <form method="post">
+        {{ form.csrf_token }}
+        {% include "form_errors.html" %}
+        <div class="mb-3">
+            <label for="username">사용자 이름</label>
+            <input type="text" class="form-control" name="username" id="username"
+                   value="{{ form.username.data or '' }}" style="width:300px;height:50px;font-size:20px;
+                   text-align:center; display:block; margin: 0 auto;">
+        </div>
+        <div class="mb-3">
+            <label for="password1">비밀번호</label>
+            <input type="password" class="form-control" name="password1" id="password1"
+                   value="{{ form.password1.data or '' }}" style="width:300px;height:50px;font-size:20px;
+                   text-align:center; display:block; margin: 0 auto;">
+        </div>
+        <div class="mb-3">
+            <label for="password2">비밀번호 확인</label>
+            <input type="password" class="form-control" name="password2" id="password2"
+                   value="{{ form.password2.data or '' }}" style="width:300px;height:50px;font-size:20px;
+                   text-align:center; display:block; margin: 0 auto;">
+        </div>
+        <div class="mb-3">
+            <label for="email">이메일</label>
+            <input type="text" class="form-control" name="email" id="email"
+                   value="{{ form.email.data or '' }}" style="width:300px;height:50px;font-size:20px;
+                   text-align:center; display:block; margin: 0 auto;">
+        </div>
+        <button type="submit" class="btn btn-primary">생성하기</button>
+    </form>
+</div>
+{% endblock %}

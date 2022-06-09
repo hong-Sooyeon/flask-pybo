@@ -1,0 +1,166 @@
+{% extends 'base.html' %}
+{% block content %}
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+    .accordion{
+        font-family: 'Do Hyeon', sans-serif;
+    }
+    </style>
+
+<!--    <header>-->
+<!--    &lt;!&ndash;    <div class="navbar bg-dark" id="navbarHeader">&ndash;&gt;-->
+<!--        <div class="container">-->
+<!--          <div class="row">-->
+<!--    &lt;!&ndash;        <div class="col-sm-8 col-md-7 py-1">    #col-sm- : 수평으로 쌓임&ndash;&gt;-->
+<!--              <div class="col-sm-5">-->
+<!--                <h4 class="text-black">체력단련비 안내사항</h4>-->
+<!--              </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </header>-->
+
+
+<!-지원 내용 아코디언-->
+<div class="accordion" id="accordionPanelsStayOpenExample">
+    <div class="row">
+      <div class="col py-2">
+          <h4 class="text-black text-align:left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;체력단련비 안내사항</h4>
+      </div>
+    </div>
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+        &nbsp;&nbsp;&nbsp;1. 체력단련비 지원금 안내
+      </button>
+    </h2>
+    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+      <div class="accordion-body">
+        &nbsp;&nbsp;&nbsp;월 결제금액 80% 최대 얼마까지
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+        &nbsp;&nbsp;&nbsp;2. 지원금 신청 기간 안내
+      </button>
+    </h2>
+    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+      <div class="accordion-body">
+        &nbsp;&nbsp;&nbsp;결제월 15일부터 익월 언제까지
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+        &nbsp;&nbsp;&nbsp;3. 지원 가능 운동 종목 안내
+      </button>
+    </h2>
+    <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+      <div class="accordion-body">
+        &nbsp;&nbsp;&nbsp;골프, 헬스, 테니스, 요가, 필라테스....
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="panelsStayOpen-headingFour">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour">
+        &nbsp;&nbsp;&nbsp;4. 지원 신청 방법
+      </button>
+    </h2>
+    <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFour">
+      <div class="accordion-body">
+        &nbsp;&nbsp;&nbsp;수강확인증(기관명, 전화번호, 수강생 이름, 운동 기간 표시), 본인 명의 하나카드 앞면 사본, 하나카드 결제 영수증 필수 첨부
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="panelsStayOpen-headingFive">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false" aria-controls="panelsStayOpen-collapseFive">
+        &nbsp;&nbsp;&nbsp;5. 지원 전 결제시 주의사항
+      </button>
+    </h2>
+    <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFive">
+      <div class="accordion-body">
+        &nbsp;&nbsp;&nbsp;본인 운동만 지원 가능. 배우자, 자녀 사용 불가
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--FAQ 아코디언-->
+<div class="accordion accordion-flush" id="accordionFlushExample">
+  <div class="row">
+    <div class="col-sm-8 col-md-7 py-2">
+        <h4 class="text-black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FAQ</h4>
+      </div>
+  </div>
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingOne">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+        &nbsp;&nbsp;&nbsp;자주 묻는 질문 #1: 발레도 지원이 되나요?
+      </button>
+    </h2>
+    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body"><strong>&nbsp;&nbsp;&nbsp;안됩니다.</strong></div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+        &nbsp;&nbsp;&nbsp;자주 묻는 질문 #2: 제가 너무 바쁜데 가족이 대신 다녀도 되나요?
+      </button>
+    </h2>
+    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body"><strong>&nbsp;&nbsp;&nbsp;안됩니다.</strong></div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+        &nbsp;&nbsp;&nbsp;자주 묻는 질문 #3: 열심히 하면 100% 지원도 되나요?
+      </button>
+    </h2>
+    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body"><strong>&nbsp;&nbsp;&nbsp;안됩니다.</strong></div>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingFour">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+        &nbsp;&nbsp;&nbsp;자주 묻는 질문 #4: 집에 가도 되나요?
+      </button>
+    </h2>
+    <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body"><strong>&nbsp;&nbsp;&nbsp;안됩니다.</strong></div>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingFive">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
+        &nbsp;&nbsp;&nbsp;자주 묻는 질문 #5: 돈으로는 안주나요?
+      </button>
+    </h2>
+    <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body"><strong>&nbsp;&nbsp;&nbsp;안줍니다.</strong></div>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingTwelve">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwelve" aria-expanded="false" aria-controls="flush-collapseTwelve">
+        &nbsp;&nbsp;&nbsp;자주 묻는 질문 #6: 삼성카드로 결제했는데 신청해도 되나요?
+      </button>
+    </h2>
+    <div id="flush-collapseTwelve" class="accordion-collapse collapse" aria-labelledby="flush-headingTwelve" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body"><strong>&nbsp;&nbsp;&nbsp;안됩니다.</strong></div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

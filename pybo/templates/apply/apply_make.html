@@ -1,24 +1,41 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% block content %}
-    <div class="container" style="text-align: center;">
+<div class="container" style="text-align: center;">
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
     .container{
         font-family: 'Do Hyeon', sans-serif;
     }
-</style>
+    </style>
 
 
-</head>
-<body style="background-color:#6488E5">
+<head>
+    <body style="background-color:#6488E5">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type = "text/javascript" src = "http://code.jquery.com/jquery-latest.min.js"></script>
+    <script type = "text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+    <script type = "text/javascript" src = "https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <title>Document</title>
+    </head>
+
+
+
+<form class="needs-validation" novalidate>
+
 <center>
- <h1> 체력단련비 신청서 </h1>
- <table boder = "cellspacing = "1" >
- <FORM>
 
+ <table boder = "cellspacing = "1" id="document">
+
+<tr><br>
+    <h1 style="font-size:40px;" > 체력단련비 신청서 </h1>
+</tr>
 
   <tr>
-   <td> ■ 인적사항 </td>
+   <td> <br>■ 인적사항 </td>
   </tr>
 
   <tr>
@@ -28,7 +45,7 @@
 
   <tr>
    <td text-align="center"> 성명 </td>
-   <td> <input type = "text" /> </td>
+   <td> <input name="name" type = "text" /> </td>
   </tr>
 
   <tr>
@@ -50,7 +67,7 @@
   </tr>
 
   <tr>
-   <td> ■ 수강상세내역 </td>
+   <td> <br>■ 수강상세내역 </td>
   </tr>
 
 
@@ -105,7 +122,12 @@
 
   <tr>
    <td text-align="center"> 영수증 결제일 </td>
-   <td> <input type = "text" /> </td>
+
+   <td>
+       <form>
+      <p><input type="date"></p>
+       </form>
+   </td>
   </tr>
 
   <tr>
@@ -118,16 +140,48 @@
    <td> <input type = "text" /> </td>
   </tr>
 
- </FORM>
 </table>
 
-<br/>
 
 
-<input type = "submit" value = "제출하기"/>
+</form>
 
 
-</center>
+ <form action="/email/email" method="POST"enctype="multipart/form-data">
+  <br><tr>
+
+   <br><td>영수증</td>
+   <td>
+    <input type=file name=email_file value="">
+   </td>
+
+     <br><td>수강확인서</td>
+   <td>
+    <input type=file name=email_file value="">
+   </td>
+
+     <br><td>신용카드</td>
+   <td>
+    <input type=file name=email_file value="">
+   </td>
+
+     <br><br><td>이메일(보내는 사람)</td>
+
+   <td>
+    <input type="text" name=email_sender value="" />
+   </td>
+     <br><td>이메일 password</td>
+
+   <td>
+    <input type="text" name=email_sender value="" />
+   </td>
+  </tr>
+  <p>
+   <input type=submit value=메일발송>
+  </p>
+ </form>
+
 </body>
+
 </html>
 {% endblock %}

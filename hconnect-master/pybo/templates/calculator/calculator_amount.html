@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+
+<!--<label for="start">Start date:</label>-->
+<!--<input type="date" id="start" name="exercise-start" onchange="call()"-->
+<!--       value="2022-01-01"-->
+<!--       min="2022-01-01" max="2024-12-31">-->
+
+<!--<label for="end">End date:</label>-->
+
+<!--<input type="date" id="end" name="exercise-end" onchange="call()"-->
+<!--       value="2022-01-01"-->
+<!--       min="2022-01-01" max="2024-12-31">-->
+<!--신청금액 <input type="text" id="money"><br>-->
+<!--계산하기 <input type="submit"><br>-->
+
+<!--<b>ⓨ</b> 연차이 계산 : <input type="text" id="years" size="5" style="text-align:center;">  /-->
+<!--<b>ⓜ</b> 개월수 계산 : <input type="text" id="months" size="5" style="text-align:center;">  /-->
+<!--<b>ⓓ</b> 일차이 계산 : <input type="text" id="days" size="6" style="text-align:center;">-->
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1,
+        shrink-to-fit=no">
+        <link rel="stylesheet" href="
+        https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <title>Exercise Calculator</title>
+    </head>
+
+        <body>
+        <div class='container' style='padding-top:50px'>
+            <h1>Exercise Calculator</h1>
+
+            <form method='post'>
+
+        <div class='form-group row'>
+            <div class='col-sm-6'>
+                <label>월 수강료를 입력하세요</label>
+                </div>
+            <div class='cold-sm-6'>
+                <input type='number' class='form-control' name='tuition_fee'
+                       placeholder='수강료'>
+                </div>
+        </div>
+
+
+        <div class='form-group row'>
+            <div class='col-sm-6'>
+                <label>시작일자를 입력하세요</label>
+            </div>
+        </div>
+        <div class='cold-sm-6'>
+            <input type='date' class='form-control' name='start_date'
+                   placeholder='시작일'>
+        </div>
+
+        <div class='form-group row'>
+            <div class='col-sm-6'>
+                <label>종료일자를 입력하세요</label>
+            </div>
+        </div>
+        <div class='cold-sm-6'>
+            <input type='date' class='form-control' name='end_date'
+                   placeholder='종료일'>
+        </div>
+
+
+
+        <div class='form-group row'>
+            <div class='col-sm-6'>
+                <button type='submit' class='btn btn-primary'>계산하기</button>
+            </div>
+
+<!--            <div>-->
+<!--              <p style='font-weight:bold; font-size: 30px; color: green'>지원금액: {{ wig }}</p>-->
+<!--            </div>-->
+
+        </div>
+            </form>
+        </div>
+
+        </body>
+</html>
+
+
+
+
+{% endblock %}
+
+{% block script %}
+
+
+
+<script>
+const now = new Date();
+
+fuction input() {
+  const dday = new Date(document.querySelector("#input_date").value);
+  const passedTime = now.getTime()-dday.getTime();
+  const passedDay = Math.round(passedTime/(24*60*60*1000));
+  document.querySelector("accent").innerHTML = passedDay+"일";
+}
+
+</script>
+{% endblock %}
