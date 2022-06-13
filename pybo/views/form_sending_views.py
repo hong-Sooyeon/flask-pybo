@@ -67,7 +67,7 @@ def email_test():
 
 @bp.route('/send_email', methods=('GET', 'POST'))
 # @login_required
-def send_email(senders, receiver, file, title, content):
+def send_email(receiver, file, title, content):
     try:
         msg = MIMEMultipart('alternative')
         msg['From'] = senders

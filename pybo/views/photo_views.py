@@ -65,4 +65,6 @@ def delete(user_id):
         return redirect(url_for('photo._list'))
     db.session.delete(photo)
     db.session.commit()
-    return redirect(url_for('photo.create'))
+    flash('삭제가 완료되었습니다')
+    return redirect(url_for('photo._list'))
+

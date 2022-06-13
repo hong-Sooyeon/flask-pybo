@@ -26,7 +26,6 @@
           </div>
         </div>
     </header>
-
 <main>
 
 <!----------검색바, 안쓸예정--------->
@@ -43,8 +42,6 @@
 <!--    </div>-->
 <!------------------검색바 여기까지------>
 
-
-
     <div class="table">
 <!--    <thead>-->
 <!--    <th>-->
@@ -54,34 +51,24 @@
         <div class="text-center">
             <div>{{ photo_list.total - ((photo_list.page-1) * photo_list.per_page) - loop.index0 }}
             </div>
-<!--            <div class="text-center">     &lt;!&ndash;&#45;&#45;td 이거 지우면 카드 바탕 하얀거 없어짐-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&ndash;&gt;-->
-<!--                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-5" id="parent">-->
-            <!-- new card 1 -->
 
+            <!-- new card 1 -->
             <div class="album py-1">
             <div class="container">
 <!--                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-5" id="parent">-->
                 <div class="col">
                   <div class="card shadow-sm">
-<!--                    <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img"-->
-<!--                         aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title>-->
-                      <img src="{{ photo.content }}" width="100%" height="350">   <!---------여기 이미지경로 불러와서 사진 띄워야 하는데 안뜸------>
+                      <img src="{{ photo.content }}" width="100%" height="350">
 
-                    <div class="card-body">
-                      <p class="card-text">{{ photo.create_date|datetime }}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ photo.user.username }}</p>
-
-
-
-
-                        <!-------사진 삭제기능------------------------------>
-                        {% if g.user == photo.user %}
-                        <a href="javascript" class="delete btn btn-sm btn-outline-secondary"
-                       data-uri="{{ url_for('photo.delete', user_id=photo.user_id) }}">삭제</a>
-                        {% endif %}
-                        <!----------사진삭제기능-------------------->
-
-
-
+                    <div class="card-body" id="delete">
+                      <p class="card-text">{{ photo.create_date|datetime }}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ photo.user.username }}
+                          &nbsp&nbsp&nbsp&nbsp
+                          <!-------사진 삭제기능------------------------------>
+                            {% if g.user == photo.user %}
+                            <a href="javascript:void(0)" class="delete btn btn-sm btn-outline-secondary"
+                           data-uri="{{ url_for('photo.delete', user_id=photo.id) }}">삭제</a>
+                            {% endif %}
+                            <!----------사진삭제기능--------------------></p>
 
                       <div class="d-flex justify-content-between align-items-center">
                       </div>
@@ -170,11 +157,11 @@ btn_search.addEventListener('click', function() {
     document.getElementById('page').value = 1;  // 검색버튼을 클릭할 경우 1페이지부터 조회한다.
     document.getElementById('searchForm').submit();
 });
-
+</script>
 
 
 <!--delete 팝업위해 추가한거-->
-
+<script type='text/javascript'>
 const delete_elements = document.getElementsByClassName("delete");
 Array.from(delete_elements).forEach(function(element) {
     element.addEventListener('click', function() {
