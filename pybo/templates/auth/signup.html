@@ -35,6 +35,14 @@
                    value="{{ form.email.data or '' }}" style="width:300px;height:50px;font-size:20px;
                    text-align:center; display:block; margin: 0 auto;">
         </div>
+<!--        행번받기 위해 새로 만든거. 안되면삭제-->
+        <div class="mb-3">
+            <label for="email">행번</label>
+            <input type="number" class="form-control" name="usernumber" id="usernumber"
+                   value="{{ form.usernumber.data or '' }}" style="width:300px;height:50px;font-size:20px;
+                   text-align:center; display:block; margin: 0 auto;">
+        </div>
+
         <button type="submit" class="btn btn-primary">생성하기</button>
     </form>
 </div>
