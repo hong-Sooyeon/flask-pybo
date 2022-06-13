@@ -1,8 +1,9 @@
 from config.default import *
 import os
 from dotenv import load_dotenv
+import flask_sqlalchemy
 import MySQLdb
-# import pymysql
+import pymysql
 # pymysql.install_as_MYSQLdb()
 
 SQLALCHEMY_TRACK_MODIFICATIONS = False
@@ -14,5 +15,7 @@ SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://{user}:{pw}@{url}/{db}'.format(
     user=os.getenv('DB_USER'),
     pw=os.getenv('DB_PASSWORD'),
     url=os.getenv('DB_HOST'),
-    db=os.getenv('DB_NAME'))
+    db=os.getenv('DB_NAME'),
+    port=3306,
+    charset='utf8')
 
