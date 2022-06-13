@@ -10,7 +10,7 @@ SECRET_KEY = b'\x1a\xdf3\x07\x8e\x9br/\x90\xb6B\x91I!C\xfa'
 
 load_dotenv(os.path.join(BASE_DIR, '.env'))
 
-SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://{user}:{pw}@{url}/{db}'.format(
+SQLALCHEMY_DATABASE_URI = 'mysql+pymysql:///{user}:{pw}@{url}/{db}'.format(
     user=os.getenv('DB_USER'),
     pw=os.getenv('DB_PASSWORD'),
     url=os.getenv('DB_HOST'),
