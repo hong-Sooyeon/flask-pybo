@@ -25,7 +25,7 @@ class User(db.Model):
     password = db.Column(db.String(200), nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     # 회원가입시 행번받기위해 만든거. 안되면 삭제
-    usernumber = db.Column(db.Integer, unique=True, nullable=False)
+    usernumber = db.Column(db.Integer, nullable=False)
 
 # 아래부터 직원인증위해 새로만든 모델임. 작동안되면 삭제
 class UserConfirm(db.Model):
