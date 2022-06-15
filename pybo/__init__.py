@@ -4,7 +4,6 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import MetaData
 from flaskext.markdown import Markdown
 
-
 naming_convention = {
     "ix": 'ix_%(column_0_label)s',
     "uq": "uq_%(table_name)s_%(column_0_name)s",
@@ -31,6 +30,7 @@ def create_app():
     from . import models
 
     # 블루프린트
+<<<<<<< HEAD
     from .views import main_views, question_views, answer_views, auth_views, exercise_views, \
         calculator_views,form_sending_views, apply_views, complete_views, mypage_views, \
         hconnect_views, photo_views
@@ -39,6 +39,11 @@ def create_app():
 
 
 
+=======
+    from .views import main_views, question_views, answer_views, auth_views, exercise_views, calculator_views, \
+        form_sending_views, apply_views, complete_views, mypage_views, hconnect_views, \
+        photo_views, hongtest, form_sending_views, apply_views, complete_views, mypage_views, hconnect_views
+>>>>>>> 817cd5959d0d6dfce9ba967420741d5d3a4bbbdf
     app.register_blueprint(main_views.bp)
     app.register_blueprint(question_views.bp)
     app.register_blueprint(answer_views.bp)

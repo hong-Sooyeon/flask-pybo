@@ -1,9 +1,51 @@
+<<<<<<< HEAD
 import smtplib
 from email import encoders
 from email.header import Header
 from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+=======
+# # email library
+# import os
+# import smtplib
+# from email import encoders
+# from email.header import Header
+# from email.mime.base import MIMEBase
+# from email.mime.multipart import MIMEMultipart
+# from email.mime.text import MIMEText
+from flask import request, render_template, Blueprint, app, flash, Flask
+from pybo.views.auth_views import login_required
+#
+# # import sys
+# # from PyQt5.QtCore import *
+# # from PyQt5.QtGui import *
+# # from PyQt5.QtWebKit import *
+# #
+# # app = QApplication(sys.argv)
+# # w = QWebView()
+# # w.load(QUrl('https://www.delftstack.com'))
+# # p = Qp()
+# # p.setPageSize(Qp.A4)
+# # p.setOutputFormat(Qp.PdfFormat)
+# # p.setOutputFileName("sample.pdf")
+# #
+# # def convertIt():
+# #     w.print_(p)
+# #     QApplication.exit()
+# #
+# # QObject.connect(w, SIGNAL("loadFinished(bool)"), convertIt)
+# # sys.exit(app.exec_())f
+
+
+# from flask import Blueprint, url_for, render_template, flash, request
+# from werkzeug.utils import redirect
+#
+# from pybo import db
+# from ..forms import AnswerForm
+# from pybo.models import Question, Answer
+# from .auth_views import login_required
+>>>>>>> 817cd5959d0d6dfce9ba967420741d5d3a4bbbdf
 
 from flask import request, render_template, Blueprint, app, flash, Flask
 from werkzeug.utils import secure_filename
@@ -11,7 +53,12 @@ from werkzeug.utils import secure_filename
 bp = Blueprint('form_sending', __name__, url_prefix='/form_sending')
 #email library
 
+<<<<<<< HEAD
 @bp.route('/sending_form/', methods=('GET', 'POST'))
+=======
+@bp.route('/form_sending', methods=('GET', 'POST'))
+@login_required
+>>>>>>> 817cd5959d0d6dfce9ba967420741d5d3a4bbbdf
 def email_test():
     if request.method == 'POST':
         senders = 'hanabankhconnect@gmail.com'
@@ -34,7 +81,13 @@ def email_test():
 
 
 
+<<<<<<< HEAD
 def send_email(senders, receiver, file, title, content):
+=======
+@bp.route('/send_email', methods=('GET', 'POST'))
+@login_required
+def send_email(receiver, file, title, content):
+>>>>>>> 817cd5959d0d6dfce9ba967420741d5d3a4bbbdf
     try:
         msg = MIMEMultipart('alternative')
         msg['From'] = senders
@@ -64,7 +117,7 @@ def send_email(senders, receiver, file, title, content):
         APP_PASSWORD = 'lraytzluklrnmtgn'
         # 'mxkdwcprhhxhrqpu'
 
-        # Setting
+        # Settingg
         mailServer = smtplib.SMTP(MAIL_SERVER, MAIL_PORT)
         mailServer.ehlo()
         mailServer.starttls()

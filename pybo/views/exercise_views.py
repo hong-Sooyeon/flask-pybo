@@ -11,6 +11,7 @@ from .auth_views import login_required
 bp = Blueprint('exercise', __name__, url_prefix='/exercise')
 
 @bp.route('/exercise/', methods=('GET', 'POST'))
+@login_required
 def info():
     return render_template('exercise/exercise_form.html')
 

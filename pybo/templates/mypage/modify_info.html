@@ -74,95 +74,114 @@
   </head>
   <body class="bg-light">
 
+
 <div class="container">
   <main>
+
+    <!-----별적립---------->
+
+
+    <div class="py-5 text-center">
+      <img class="d-block mx-auto mb-4">
+      <h2>별 적립 현황</h2>
+      {% if variable == 0 %}
+      <a>아직 별이 하나도 없으시네요. 운동을 인증하고 별을 모아보세요</a>
+      {% else %}
+      {% for i in range(variable) %}
+      <a><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="yellow" class="bi bi-star-fill" viewBox="0 0 16 16">
+          <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+          </svg></a>
+      {% endfor %}
+      {% endif %}
+    </div>
+    <!-------별적립 여기까지------------>
+
+    <!-------기존 정보 보여주기----------->
+    <div class="py-5 text-center">
+      <img class="d-block mx-auto mb-4">
+      <h2>내 정보 보기</h2>
+    </div>
+
+    <div class="row g-10" style="margin: 0 auto">
+      <div class="col-md-7 col-lg-8" style="margin: 0 auto">
+        <h4 class="mb-3">사용자 이름 &nbsp&nbsp&nbsp&nbsp&nbsp {{ username }}</h4>
+        <h4 class="mb-3">사용자 메일 &nbsp&nbsp&nbsp&nbsp&nbsp {{ useremail }}</h4>
+        <h4 class="mb-3">사용자 행번 &nbsp&nbsp&nbsp&nbsp&nbsp {{ usernumber }}</h4>
+      </div>
+    </div>
+    <!-------기존 정보 보여주기 여기까지---->
+
+    <form method="post">
+      {{ form.csrf_token }}
+      {% include "form_errors.html" %}
     <div class="py-5 text-center">
       <img class="d-block mx-auto mb-4">
       <h2>내 정보 수정하기</h2>
-      <p class="lead"></p>
     </div>
 
     <div class="row g-5" style="margin: 0 auto">
-
       <div class="col-md-7 col-lg-8" style="margin: 0 auto">
         <h4 class="mb-3">비밀번호 변경</h4>
-        <form class="needs-validation" novalidate>
           <div class="row g-3">
             <div class="col-12">
-              <label for="password1" class="form-label">변경할 비밀번호</label>
-              <input type="text" class="form-control" id="password1" placeholder="" value="" required>
-              <div class="invalid-feedback">
-                Valid last name is required.
-              </div>
+              <label for="password1">변경할 비밀번호</label>
+              <input type="password" class="form-control" name="password1" id="password1" value="{{ form.password1.data or '' }}">
+
             </div>
 
             <div class="col-12">
-              <label for="password2" class="form-label">비밀번호 확인</label>
-              <div class="input-group has-validation">
-                <input type="text" class="form-control" id="password2" placeholder="" required>
-              <div class="invalid-feedback">
-                  Your username is required.
-                </div>
-              </div>
+              <label for="password2">비밀번호 확인</label>
+              <input type="password" class="form-control" name="password2" id="password2" value="{{ form.password2.data or '' }}">
             </div>
 
+<!--          <hr class="my-4">-->
+<!--          <div class="form-check">-->
+<!--            <input type="checkbox" class="form-check-input" id="save-info">-->
+<!--            <label class="form-check-label" for="save-info">Save this information for next time</label>-->
+<!--          </div>-->
+<!--          <hr class="my-4">-->
+
+<!--          <h4 class="mb-3">결제 카드정보 변경</h4>-->
+<!--          <div class="row g-3">-->
+<!--            <div class="col-12">-->
+<!--              <label for="cc-number" class="form-label">하나카드 카드번호</label>-->
+<!--              <input type="text" class="form-control" id="cc-number" placeholder="" required>-->
+<!--              <div class="invalid-feedback">-->
+<!--                Credit card number is required-->
+<!--              </div>-->
+<!--            </div>-->
+
+<!--            <div class="col-md-6">-->
+<!--              <label for="cc-expiration" class="form-label">유효기일(월/년)</label>-->
+<!--              <input type="text" class="form-control" id="cc-expiration" placeholder="" required>-->
+<!--              <div class="invalid-feedback">-->
+<!--                Expiration date required-->
+<!--              </div>-->
+<!--            </div>-->
+
+<!--            <div class="col-md-6">-->
+<!--              <label for="cc-cvv" class="form-label">CVV번호</label>-->
+<!--              <input type="text" class="form-control" id="cc-cvv" placeholder="" required>-->
+<!--              <div class="invalid-feedback">-->
+<!--                Security code required-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+
           <hr class="my-4">
-          <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="save-info">
-            <label class="form-check-label" for="save-info">Save this information for next time</label>
+
+<!--          <button class="w-100 btn btn-primary btn-lg" type="submit">수정하기</button>-->
+            <button type="submit" class="btn btn-primary">비밀번호 수정하기</button>
           </div>
-          <hr class="my-4">
-
-          <h4 class="mb-3">결제 카드정보 변경</h4>
-          <div class="row g-3">
-            <div class="col-12">
-              <label for="cc-number" class="form-label">하나카드 카드번호</label>
-              <input type="text" class="form-control" id="cc-number" placeholder="" required>
-              <div class="invalid-feedback">
-                Credit card number is required
-              </div>
-            </div>
-
-            <div class="col-md-6">
-              <label for="cc-expiration" class="form-label">유효기일(월/년)</label>
-              <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
-              <div class="invalid-feedback">
-                Expiration date required
-              </div>
-            </div>
-
-            <div class="col-md-6">
-              <label for="cc-cvv" class="form-label">CVV번호</label>
-              <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
-              <div class="invalid-feedback">
-                Security code required
-              </div>
-            </div>
-          </div>
-
-          <hr class="my-4">
-
-          <button class="w-100 btn btn-primary btn-lg" type="submit">수정하기</button>
-        </form>
       </div>
     </div>
+    </form>
   </main>
-
-  <footer class="my-5 pt-5 text-muted text-center text-small">
-<!--    <p class="mb-1">&copy; 2017–2022 Company Name</p>-->
-<!--    <ul class="list-inline">-->
-<!--      <li class="list-inline-item"><a href="#">Privacy</a></li>-->
-<!--      <li class="list-inline-item"><a href="#">Terms</a></li>-->
-<!--      <li class="list-inline-item"><a href="#">Support</a></li>-->
-<!--    </ul>-->
-  </footer>
 </div>
-
-
-    <script src="/docs/5.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-
-      <script src="form-validation.js"></script>
   </body>
+<br>
+<br>
+
 </html>
 
 {% endblock %}

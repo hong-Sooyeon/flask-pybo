@@ -36,7 +36,8 @@ def signup():
         if not user:
             user = User(username=form.username.data,
                         password=generate_password_hash(form.password1.data),
-                        email=form.email.data)
+                        email=form.email.data,
+                        usernumber=form.usernumber.data)
             db.session.add(user)
             db.session.commit()
             return redirect(url_for('main.index'))
@@ -87,3 +88,4 @@ def login_required(view):
             return redirect(url_for('auth.login', next=_next))
         return view(*args, **kwargs)
     return wrapped_view
+

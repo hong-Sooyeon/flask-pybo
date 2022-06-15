@@ -15,6 +15,8 @@ class UserCreateForm(FlaskForm):
         DataRequired(), EqualTo('password2', '비밀번호가 일치하지 않습니다')])
     password2 = PasswordField('비밀번호확인', validators=[DataRequired()])
     email = EmailField('이메일', validators=[DataRequired(), Email()])
+    # 회원가입시 행번정보 받기위해 만든거. 안되면 삭제
+    usernumber = IntegerField('행번', validators=[DataRequired()])
 
 class UserLoginForm(FlaskForm):
     username = StringField('사용자이름', validators=[DataRequired(), Length(min=3, max=25)])
@@ -31,3 +33,8 @@ class UserConfirmForm(FlaskForm):
 class PhotoForm(FlaskForm):
     # content = StringField('사진', validators=[DataRequired('사진은 필수입력 항목입니다.')])
     content = StringField('사진')
+
+class UserModifyForm(FlaskForm):
+    password1 = PasswordField('비밀번호', validators=[
+        DataRequired(), EqualTo('password2', '비밀번호가 일치하지 않습니다')])
+    password2 = PasswordField('비밀번호확인', validators=[DataRequired()])

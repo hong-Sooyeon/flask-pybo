@@ -1,3 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>지원 신청서 작성</title>
+
+<style>
+ h, td, tr, input, textarea, select, FORM
+ {
+<!--  font-family:고딕;-->
+  font-size:1em;
+  border-radius:5px;
+
+ }
+
+ table, FORM
+ {
+  border-spacing:20px;
+ }
+
+</style>
 
 <!doctype html>
 <html lang="ko">
@@ -13,78 +37,7 @@
     <link rel="stylesheet" href="/static/style.css">
     <title>HCONNECT</title>
     <style>@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');</style>
-</head>
-<!--무지개 그라<body style="background: linear-gradient(to right, #c6ffdd, #fbd786, #f7797d);">-->
-<body style="background: linear-gradient(to right, #c9ffbf, #ffafbd);">
-<!-- 네비게이션바-->
-<!-- 네비게이션바 -->
-<!-- 색입히기전 original <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">-->
-<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom" style="background-color: #20b2aa;">
-    <style>
-    @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
 
-    .container-fluid {
-        font-family: 'Do Hyeon', sans-serif;
-    }
-    a {
-        font-family: 'Do Hyeon', sans-serif;
-    }
-</style>
-    <div class="container-fluid">
-        <!--original <a class="navbar-brand" href="/">Pybo</a>-->
-        <!--<a class="navbar-brand" href="/">HCONNECT</a>-->
-        <!--original<a class="navbar-brand" style="background-color: #20b2aa;" href="/">HCONNECT</a>-->
-        <a class="navbar-brand" style="background-color: #20b2aa;" href="/hconnect/hconnect/">&nbsp;&nbsp;HCONNECT&nbsp;&nbsp;</a>
-        <button class="navbar-toggler" type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <!--이게 signup original <a class="nav-link" href="/auth/signup/">계정생성</a>-->
-                    <!-- 아래는 직원인증을 거쳐 회원가입으로 가는 방식 새로 만들어보는거임. 안되면 삭제해야함-->
-                    <a class="nav-link" href="/auth/confirm/">계정생성</a>
-
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/auth/login/">로그인</a>
-                </li>
-                <!--아래부터 변경사항-->
-                <li class="nav-item">
-                    <!--아래한줄 변경전 작동코드 <a class="nav-link" href="#">지원종목</a> -->
-                    <a class="nav-link" href="/exercise/exercise/">지원종목</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/calculator/calculator/">지원금계산</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/form_sending/email">수강확인서 발송</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/apply/apply/">신청하기</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/question/list/">운동메이트 구하기</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/photo/photo_list/">운동인증</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/mypage/modify/">마이페이지</a>
-                </li>
-
-
-            </ul>
-            
-        </div>
-    </div>
-</nav>
 <!-- 기본 템플릿 안에 삽입될 내용 Start -->
 
 <div class="container" style="text-align: center;">
@@ -291,3 +244,4 @@
 
 
 
+{% endblock %}

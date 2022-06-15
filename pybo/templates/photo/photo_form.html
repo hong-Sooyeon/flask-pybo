@@ -10,13 +10,13 @@
 
 <!----------사진업로드 기능------------>
         <div class="container">
-        <h5 class="my-3 border-bottom pb-2">사진 등록하기</h5>
+        <h5 class="my-3 border-bottom pb-2">운동 인증하기</h5>
             <div class="form-group">
                 <header><h1 class="page-title">사진 업로드 하기</h1></header>
                 <p id="ac10138f-ebb1-4ec3-8bed-7c6c162558eb" class="">
                 <form method="POST" enctype="multipart/form-data" action="{{ url_for('photo.create') }}">
                 <input type="file" name="file" id="content" accept="image/*"/>
-                <input type="submit" value="{{ form.content.data or '' }}">
+                <input type="submit" value="{{ form.content.data or '사진등록' }}">
 <!--                <button type="submit" class="btn btn-primary">저장하기</button>-->
             </form>
 

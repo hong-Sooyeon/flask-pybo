@@ -11,6 +11,7 @@ from pybo.views.auth_views import login_required
 bp = Blueprint('question', __name__, url_prefix='/question')
 
 @bp.route('/list/')
+@login_required
 def _list():
     page = request.args.get('page', type=int, default=1)
     kw = request.args.get('kw', type=str, default='')
@@ -33,6 +34,7 @@ def _list():
     return render_template('question/question_list.html', question_list=question_list, page=page, kw=kw)
 
 @bp.route('/detail/<int:question_id>/')
+@login_required
 def detail(question_id):
     form = AnswerForm()
     question = Question.query.get_or_404(question_id)
