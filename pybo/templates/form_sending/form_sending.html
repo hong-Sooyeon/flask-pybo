@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
+
 <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -58,23 +59,27 @@
     }
 
 
+
+
+
+
 </style>
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=0.8">
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="./jquery-3.4.1.min.js"></script>
-    <link href="form-validation.css" rel="stylesheet">
-    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
-    <script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<!--    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>-->
+    <script src="{{ url_for('form_sending.email_test', filename='jquery-3.6.0.min.js') }}"></script>
+<!--    <link href="form-validation.css" rel="stylesheet">-->
+<!--    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>-->
+<!--    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>-->
+<!--    <script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>-->
+
+
 
     <title>sending form</title>
-
 </head>
-
 <body>
 
 <div class="container" id="document">
@@ -94,7 +99,6 @@
             </div>
 
         </div>
-
 
         <div class="row g-5">
             <div class="col-md-7 col-lg-8">
@@ -179,8 +183,6 @@
 
 
 
-
-
                             </script>
                         </div>
                         <!--              <input type="text" class="form-control" id="fromDate" placeholder="" value="" required>-->
@@ -193,8 +195,6 @@
                             </form>
                             <script>
               document.getElementById('currentDate').value = new Date().toISOString().substring(0, 10);;
-
-
 
 
 
@@ -267,6 +267,8 @@
 
 
 
+
+
                                 </script>
                             </div>
                             기관명(&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp)(명판
@@ -274,10 +276,11 @@
                             ※ 수강 확인을 위하여 은행에서 귀 시설로 방문 / 전화 드릴 수 있는 점 양해 바랍니다.&nbsp;
                         </div>
                         <hr class="my-4">
+                    </div>
                 </form>
             </div>
         </div>
-</div>
+    </main>
 </div>
 
 </body>
@@ -291,46 +294,47 @@
     <div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-hfeader">
                     <h5 class="modal-title" id="exampleModalLabel">수강확인서 email 보내기</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
                 <div class="modal-body">
 
-                    <form action="/form_sending/form_sending" method="POST" enctype="multipart/form-data">
+                    <form action="/form_sending/sending_form/" method="POST" enctype="multipart/form-data">
 
                         <div class="mb-3">
                             <label for="email_receiver" class="col-form-label">메일 수신인:</label>
-                            <input type="text" class="form-control" id="email_receiver">
+                            <input type="text" class="form-control" id="email_receiver" name="email_receiver"></input>
                         </div>
                         <div class="mb-3">
                             <label for="email_title" class="col-form-label">메일 제목:</label>
-                            <input type="text" class="form-control" id="email_title"></input>
+                            <input type="text" class="form-control" id="email_title" name="email_title">
                         </div>
                         <div class="mb-3">
-                            <label for="email_file" class="col-form-label">메일 제목:</label>
-                            <input type="file" class="form-control" id="email_file"></input>
+                            <label for="email_file" class="col-form-label">첨부 파일:</label>
+                            <input type="file" class="form-control" id="email_file" name="email_file">
                         </div>
                         <div class="mb-3">
                             <label for="email_content" class="col-form-label">메일 내용:</label>
-                            <textarea class="form-control" id="email_content"></textarea>
+                            <textarea class="form-control" id="email_content" name=email_content></textarea>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-success" data-bs-dismiss="modal">send</button>
                         </div>
                     </form>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary" value=SEND>Send email</button>
-                </div>
+
             </div>
         </div>
     </div>
+</div>
+
+</body>
 
 
-    </body>
-
-
-    <script>
+<script>
     function generatePDF(){
         console.log("pdf다운로드");
         var element = document.getElementById("document");
@@ -351,9 +355,10 @@
 
 
 
-    </script>
 
-    <script type="text/javascript">
+</script>
+
+<script type="text/javascript">
 $(document).ready(function() {
     $("#openModalPop").click(function() {
         $("#banner_online").fadeIn();
@@ -367,9 +372,11 @@ $(document).ready(function() {
 });
 
 
-    </script>
 
 
-    </html>
 
-    {% endblock %}
+
+</script>
+</html>
+
+{% endblock %}
