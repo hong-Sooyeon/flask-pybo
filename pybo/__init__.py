@@ -30,18 +30,10 @@ def create_app():
     from . import models
 
     # 블루프린트
-    from .views import main_views, question_views, answer_views, auth_views, exercise_views, \
-        calculator_views,form_sending_views, apply_views, complete_views, mypage_views, \
-        hconnect_views, photo_views
-    # form_sending_views, apply_views, complete_views, certify_views, mypage_views, hconnect_views, test_views,
-    #     test2_views, test3_views, test4_views, photo_views, hongtest,
-
-
-
-
     from .views import main_views, question_views, answer_views, auth_views, exercise_views, calculator_views, \
         form_sending_views, apply_views, complete_views, mypage_views, hconnect_views, \
-        photo_views, hongtest, form_sending_views, apply_views, complete_views, mypage_views, hconnect_views
+        photo_views, hongtest
+
     app.register_blueprint(main_views.bp)
     app.register_blueprint(question_views.bp)
     app.register_blueprint(answer_views.bp)

@@ -53,9 +53,6 @@ bp = Blueprint('form_sending', __name__, url_prefix='/form_sending')
 
 @bp.route('/sending_form/', methods=('GET', 'POST'))
 @login_required
-
-@bp.route('/sending_form/', methods=('GET', 'POST'))
-@login_required
 def email_test():
     if request.method == 'POST':
         senders = 'hanabankhconnect@gmail.com'
