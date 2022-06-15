@@ -33,3 +33,8 @@ class UserConfirmForm(FlaskForm):
 class PhotoForm(FlaskForm):
     # content = StringField('사진', validators=[DataRequired('사진은 필수입력 항목입니다.')])
     content = StringField('사진')
+
+class UserModifyForm(FlaskForm):
+    password1 = PasswordField('비밀번호', validators=[
+        DataRequired(), EqualTo('password2', '비밀번호가 일치하지 않습니다')])
+    password2 = PasswordField('비밀번호확인', validators=[DataRequired()])

@@ -5,6 +5,7 @@ from pybo import db
 from ..forms import AnswerForm
 from pybo.models import Question, Answer
 from .auth_views import login_required
+from pybo.views.auth_views import login_required
 
 bp = Blueprint('apply', __name__, url_prefix='/apply')
 
@@ -19,6 +20,7 @@ app.config['MAIL_USE_SSL'] = True
 
 
 @bp.route('/apply/', methods=('GET', 'POST'))
+@login_required
 def make():
     if request.method == 'POST':
         senders = 'k2hmal@naver.com'

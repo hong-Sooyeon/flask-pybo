@@ -7,6 +7,7 @@
 # from email.mime.multipart import MIMEMultipart
 # from email.mime.text import MIMEText
 from flask import request, render_template, Blueprint, app, flash, Flask
+from pybo.views.auth_views import login_required
 #
 # # import sys
 # # from PyQt5.QtCore import *
@@ -42,7 +43,7 @@ bp = Blueprint('form_sending', __name__, url_prefix='/form_sending')
 #email library
 
 @bp.route('/form_sending', methods=('GET', 'POST'))
-
+@login_required
 def email_test():
     if request.method == 'POST':
         senders = request.form['email_sender']
@@ -66,7 +67,7 @@ def email_test():
 
 
 @bp.route('/send_email', methods=('GET', 'POST'))
-# @login_required
+@login_required
 def send_email(receiver, file, title, content):
     try:
         msg = MIMEMultipart('alternative')

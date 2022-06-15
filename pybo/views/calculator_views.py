@@ -15,6 +15,7 @@ from pybo.forms import UserLoginForm
 bp = Blueprint('calculator', __name__, url_prefix='/calculator')
 
 @bp.route('/calculator/', methods=['GET', 'POST'])
+@login_required
 def amount():
     if request.method == "POST":
         tuition_fee = float(request.form['tuition_fee'])
