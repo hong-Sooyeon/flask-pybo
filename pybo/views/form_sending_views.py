@@ -1,4 +1,3 @@
-
 import smtplib
 from email import encoders
 from email.header import Header
@@ -52,10 +51,11 @@ from werkzeug.utils import secure_filename
 bp = Blueprint('form_sending', __name__, url_prefix='/form_sending')
 #email library
 
-
 @bp.route('/sending_form/', methods=('GET', 'POST'))
 @login_required
 
+@bp.route('/sending_form/', methods=('GET', 'POST'))
+@login_required
 def email_test():
     if request.method == 'POST':
         senders = 'hanabankhconnect@gmail.com'
