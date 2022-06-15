@@ -61,8 +61,8 @@
                       <img src="{{ photo.content }}" width="100%" height="300">
 
                     <div class="card-body" id="delete">
-                      <p class="card-text">{{ photo.create_date|datetime }}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ photo.user.username }}
-                          &nbsp&nbsp&nbsp&nbsp
+                      <p class="card-text">{{ photo.create_date|datetime }}&nbsp&nbsp&nbsp{{ photo.user.username }}
+
                           <!-------사진 삭제기능------------------------------>
                             {% if g.user == photo.user %}
                             <a href="javascript:void(0)" class="delete btn btn-sm btn-outline-secondary"
