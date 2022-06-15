@@ -1,11 +1,11 @@
-<<<<<<< HEAD
+
 import smtplib
 from email import encoders
 from email.header import Header
 from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-=======
+
 # # email library
 # import os
 # import smtplib
@@ -44,8 +44,7 @@ from pybo.views.auth_views import login_required
 # from pybo import db
 # from ..forms import AnswerForm
 # from pybo.models import Question, Answer
-# from .auth_views import login_required
->>>>>>> 817cd5959d0d6dfce9ba967420741d5d3a4bbbdf
+from .auth_views import login_required
 
 from flask import request, render_template, Blueprint, app, flash, Flask
 from werkzeug.utils import secure_filename
@@ -53,12 +52,10 @@ from werkzeug.utils import secure_filename
 bp = Blueprint('form_sending', __name__, url_prefix='/form_sending')
 #email library
 
-<<<<<<< HEAD
+
 @bp.route('/sending_form/', methods=('GET', 'POST'))
-=======
-@bp.route('/form_sending', methods=('GET', 'POST'))
 @login_required
->>>>>>> 817cd5959d0d6dfce9ba967420741d5d3a4bbbdf
+
 def email_test():
     if request.method == 'POST':
         senders = 'hanabankhconnect@gmail.com'
@@ -79,15 +76,9 @@ def email_test():
         return render_template('form_sending/form_sending.html')
 
 
-
-
-<<<<<<< HEAD
-def send_email(senders, receiver, file, title, content):
-=======
 @bp.route('/send_email', methods=('GET', 'POST'))
 @login_required
-def send_email(receiver, file, title, content):
->>>>>>> 817cd5959d0d6dfce9ba967420741d5d3a4bbbdf
+def send_email(senders, receiver, file, title, content):
     try:
         msg = MIMEMultipart('alternative')
         msg['From'] = senders
