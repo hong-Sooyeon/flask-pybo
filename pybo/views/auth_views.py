@@ -88,3 +88,4 @@ def login_required(view):
             return redirect(url_for('auth.login', next=_next))
         return view(*args, **kwargs)
     return wrapped_view
+
