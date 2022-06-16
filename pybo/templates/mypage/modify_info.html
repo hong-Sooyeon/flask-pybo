@@ -8,188 +8,72 @@
     }
     </style>
 
-    <style>
-      .container{
-        width:1000px;
-        margin: 0 auto;
-
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-
-      .b-example-divider {
-        height: 3rem;
-        background-color: rgba(0, 0, 0, .1);
-        border: solid rgba(0, 0, 0, .15);
-        border-width: 1px 0;
-        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-      }
-
-      .b-example-vr {
-        flex-shrink: 0;
-        width: 1.5rem;
-        height: 100vh;
-      }
-
-      .bi {
-        vertical-align: -.125em;
-        fill: currentColor;
-      }
-
-      .nav-scroller {
-        position: relative;
-        z-index: 2;
-        height: 2.75rem;
-        overflow-y: hidden;
-      }
-
-      .nav-scroller .nav {
-        display: flex;
-        flex-wrap: nowrap;
-        padding-bottom: 1rem;
-        margin-top: -1px;
-        overflow-x: auto;
-        text-align: center;
-        white-space: nowrap;
-        -webkit-overflow-scrolling: touch;
-      }
-      @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
-      .container{
-        font-family: 'Do Hyeon', sans-serif;
-    }
-    </style>
-
-    <!-- Custom styles for this template -->
-    <link href="form-validation.css" rel="stylesheet">
-  </head>
-  <body class="bg-light">
-
-
-<div class="container">
-  <main>
-
-    <!-----별적립---------->
-
-
-    <div class="py-5 text-center">
-      <img class="d-block mx-auto mb-4">
-      <h2><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-emoji-smile" viewBox="0 0 16 16">
-  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-  <path d="M4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zm4 0c0 .828-.448 1.5-1 1.5s-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5z"/>
-</svg>&nbsp별 적립 현황</h2>
-      {% if variable == 0 %}
-      <a>아직 별이 하나도 없으시네요. 운동을 인증하고 별을 모아보세요</a>
-      {% else %}
-      {% for i in range(variable) %}
-      <a><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="yellow" class="bi bi-star-fill" viewBox="0 0 16 16">
-          <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-          </svg></a>
-      {% endfor %}
-      {% endif %}
-    </div>
-    <!-------별적립 여기까지------------>
-
-    <!-------기존 정보 보여주기----------->
-    <div class="py-5 text-center">
-      <img class="d-block mx-auto mb-4">
-      <h2><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-emoji-smile" viewBox="0 0 16 16">
-  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-  <path d="M4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zm4 0c0 .828-.448 1.5-1 1.5s-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5z"/>
-</svg>&nbsp내 정보 보기</h2>
-    </div>
-
-    <div class="row g-10" style="margin: 0 auto">
-      <div class="col-md-7 col-lg-8" style="margin: 0 auto">
-        <h5 class="mb-3">사용자이름 &nbsp&nbsp&nbsp&nbsp&nbsp{{ username }}</h5>
-        <h5 class="mb-3">메&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp일 &nbsp&nbsp&nbsp&nbsp&nbsp {{ useremail }}</h5>
-        <h5 class="mb-3">행&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp번 &nbsp&nbsp&nbsp&nbsp&nbsp {{ usernumber }}</h5>
-        <h5 class="mb-3">성&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp명 &nbsp&nbsp&nbsp&nbsp&nbsp {{ name }}</h5>
-        <h5 class="mb-3">부서,&nbsp직급 &nbsp&nbsp&nbsp&nbsp&nbsp {{ dept }}, {{ position }}</h5>
-      </div>
-    </div>
-    <!-------기존 정보 보여주기 여기까지---->
-
-    <form method="post">
-      {{ form.csrf_token }}
-      {% include "form_errors.html" %}
-    <div class="py-5 text-center">
-      <img class="d-block mx-auto mb-4">
-      <h2><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-emoji-smile" viewBox="0 0 16 16">
-  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-  <path d="M4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zm4 0c0 .828-.448 1.5-1 1.5s-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5z"/>
-</svg>&nbsp내 정보 수정하기</h2>
-    </div>
-
-    <div class="row g-5" style="margin: 0 auto">
-      <div class="col-md-7 col-lg-8" style="margin: 0 auto">
-        <h4 class="mb-3">비밀번호 변경</h4>
-          <div class="row g-3">
-            <div class="col-12">
-              <label for="password1">변경할 비밀번호</label>
-              <input type="password" class="form-control" name="password1" id="password1" value="{{ form.password1.data or '' }}">
-
+<body>
+<main>
+    <header>
+        <div class='container'>
+            <div class="row">
+                <div class="col-sm-5">
+                    <br>
+                <h4>마이페이지&nbsp<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-emoji-smile" viewBox="0 0 16 16">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+              <path d="M4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zm4 0c0 .828-.448 1.5-1 1.5s-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5z"/>
+            </svg></h4>
+            <p class="text-muted">적립된 별 조회, 내 정보 확인, 비밀번호 변경이 가능합니다.</p>
+                </div>
             </div>
+        </div>
+    </header>
+    <br>
 
-            <div class="col-12">
-              <label for="password2">비밀번호 확인</label>
-              <input type="password" class="form-control" name="password2" id="password2" value="{{ form.password2.data or '' }}">
-            </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+            <!-----별적립---------->
+            <!--    <div class="py-5 text-center">-->
+            <!--      <img class="d-block mx-auto mb-4">-->
+                  <h4>별 적립 현황&nbsp</h4>
+                  {% if variable == 0 %}
+                  <a>아직 별이 하나도 없으시네요. 운동을 인증하고 별을 모아보세요</a>
+                  {% else %}
+                  {% for i in range(variable) %}
+                  <a><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="yellow" class="bi bi-star-fill" viewBox="0 0 16 16">
+                      <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                      </svg></a>
+                  {% endfor %}
+                  {% endif %}
+            <!-------별적립 여기까지------------>
+                <br><br><br>
 
-<!--          <hr class="my-4">-->
-<!--          <div class="form-check">-->
-<!--            <input type="checkbox" class="form-check-input" id="save-info">-->
-<!--            <label class="form-check-label" for="save-info">Save this information for next time</label>-->
-<!--          </div>-->
-<!--          <hr class="my-4">-->
+            <!-------기존 정보 보여주기----------->
+                <h4>내 정보&nbsp</h4>
 
-<!--          <h4 class="mb-3">결제 카드정보 변경</h4>-->
-<!--          <div class="row g-3">-->
-<!--            <div class="col-12">-->
-<!--              <label for="cc-number" class="form-label">하나카드 카드번호</label>-->
-<!--              <input type="text" class="form-control" id="cc-number" placeholder="" required>-->
-<!--              <div class="invalid-feedback">-->
-<!--                Credit card number is required-->
-<!--              </div>-->
-<!--            </div>-->
+            <h5 class="mb-6">사용자이름 &nbsp&nbsp&nbsp&nbsp&nbsp{{ username }}</h5>
+            <h5 class="mb-6">메&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp일 &nbsp&nbsp&nbsp&nbsp&nbsp {{ useremail }}</h5>
+            <h5 class="mb-6">행&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp번 &nbsp&nbsp&nbsp&nbsp&nbsp {{ usernumber }}</h5>
+            <h5 class="mb-6">성&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp명 &nbsp&nbsp&nbsp&nbsp&nbsp {{ name }}</h5>
+            <h5 class="mb-6">부서,&nbsp직급 &nbsp&nbsp&nbsp&nbsp&nbsp {{ dept }}, {{ position }}</h5>
+        <!-------기존 정보 보여주기 여기까지---->
+                <br><br>
 
-<!--            <div class="col-md-6">-->
-<!--              <label for="cc-expiration" class="form-label">유효기일(월/년)</label>-->
-<!--              <input type="text" class="form-control" id="cc-expiration" placeholder="" required>-->
-<!--              <div class="invalid-feedback">-->
-<!--                Expiration date required-->
-<!--              </div>-->
-<!--            </div>-->
-
-<!--            <div class="col-md-6">-->
-<!--              <label for="cc-cvv" class="form-label">CVV번호</label>-->
-<!--              <input type="text" class="form-control" id="cc-cvv" placeholder="" required>-->
-<!--              <div class="invalid-feedback">-->
-<!--                Security code required-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-
-          <hr class="my-4">
-
-<!--          <button class="w-100 btn btn-primary btn-lg" type="submit">수정하기</button>-->
-            <button type="submit" class="btn btn-primary">비밀번호 수정하기</button>
+                <form method="post">
+                  {{ form.csrf_token }}
+                  {% include "form_errors.html" %}
+                  <h4>비밀번호 변경&nbsp</h4>
+                  <label for="password1">변경할 비밀번호</label>
+                  <input type="password" class="form-control" name="password1" id="password1" value="{{ form.password1.data or '' }}">
+                    <br>
+                  <label for="password2">비밀번호 확인</label>
+                  <input type="password" class="form-control" name="password2" id="password2" value="{{ form.password2.data or '' }}">
+                    <br>
+                <button type="submit" class="btn btn-primary">비밀번호 수정하기</button>
+                </form>
           </div>
       </div>
     </div>
-    </form>
-  </main>
-</div>
-  </body>
+
+</main>
+</body>
 <br>
 <br>
 

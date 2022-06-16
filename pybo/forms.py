@@ -19,7 +19,7 @@ class UserCreateForm(FlaskForm):
     usernumber = IntegerField('행번')
 
 class UserLoginForm(FlaskForm):
-    username = StringField('사용자이름', validators=[DataRequired(), Length(min=3, max=25)])
+    username = StringField('사용자이름', validators=[DataRequired(), Length(min=2, max=25)])
     password = PasswordField('비밀번호확인', validators=[DataRequired()])
 
 
