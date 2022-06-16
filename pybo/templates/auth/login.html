@@ -25,6 +25,7 @@
                    text-align:center; display:block; margin: 0 auto;">
         </div>
         <button type="submit" class="btn btn-primary">로그인</button>
+        <a class="btn btn-primary" href="{{ url_for('auth.reset_pw1') }}" role="button">비밀번호 재설정</a>
     </form>
 </div>
 {% endblock %}

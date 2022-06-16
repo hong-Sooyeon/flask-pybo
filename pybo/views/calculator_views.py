@@ -34,13 +34,13 @@ def amount():
         if result <= 150000:
             if difference > 0:
                 amount = result * difference
-                return render_template('calculator/calculator_amount2.html', result=result, period=difference, amount=amount)
+                return render_template('calculator/calculator_amount2.html', result=format(result, ','), period=difference, amount=format(amount, ','))
             else:
                 return render_template('calculator/calculator_amount2.html', result=0, period=0, amount=0)
         if result > 150000:
             if difference > 0:
                 amount = 150000 * difference
-                return render_template('calculator/calculator_amount2.html', result=150000, period=difference, amount=amount)
+                return render_template('calculator/calculator_amount2.html', result=format(150000, ','), period=difference, amount=format(amount, ','))
             else:
                 return render_template('calculator/calculator_amount2.html', result=0, period=0, amount=0)
     return render_template('calculator/calculator_amount.html')

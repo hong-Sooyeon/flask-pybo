@@ -11,6 +11,11 @@
     <form method="post">
         {{ form.csrf_token }}
         {% include "form_errors.html" %}
+
+        <div class="mb-3">
+            <h4>행번 <br> {{ usernumber }}</h4>
+        </div>
+
         <div class="mb-3">
             <label for="username">사용자 이름</label>
             <input type="text" class="form-control" name="username" id="username"
@@ -33,13 +38,6 @@
             <label for="email">이메일</label>
             <input type="text" class="form-control" name="email" id="email"
                    value="{{ form.email.data or '' }}" style="width:300px;height:50px;font-size:20px;
-                   text-align:center; display:block; margin: 0 auto;">
-        </div>
-<!--        행번받기 위해 새로 만든거. 안되면삭제-->
-        <div class="mb-3">
-            <label for="usernumber">행번</label>
-            <input type="number" class="form-control" name="usernumber" id="usernumber"
-                   value="{{ form.usernumber.data or '' }}" style="width:300px;height:50px;font-size:20px;
                    text-align:center; display:block; margin: 0 auto;">
         </div>
 

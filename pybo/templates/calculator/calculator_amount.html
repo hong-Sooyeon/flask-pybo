@@ -7,24 +7,6 @@
     }
     </style>
 
-
-<!--<label for="start">Start date:</label>-->
-<!--<input type="date" id="start" name="exercise-start" onchange="call()"-->
-<!--       value="2022-01-01"-->
-<!--       min="2022-01-01" max="2024-12-31">-->
-
-<!--<label for="end">End date:</label>-->
-
-<!--<input type="date" id="end" name="exercise-end" onchange="call()"-->
-<!--       value="2022-01-01"-->
-<!--       min="2022-01-01" max="2024-12-31">-->
-<!--신청금액 <input type="text" id="money"><br>-->
-<!--계산하기 <input type="submit"><br>-->
-
-<!--<b>ⓨ</b> 연차이 계산 : <input type="text" id="years" size="5" style="text-align:center;">  /-->
-<!--<b>ⓜ</b> 개월수 계산 : <input type="text" id="months" size="5" style="text-align:center;">  /-->
-<!--<b>ⓓ</b> 일차이 계산 : <input type="text" id="days" size="6" style="text-align:center;">-->
-
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -36,40 +18,46 @@
     </head>
 
         <body>
-        <div class='container' style='padding-top:50px'>
-            <h1>Exercise Calculator</h1>
+        <div class='container' style='padding-top:30px'>
+            <h3>체력단련비 지원금액 계산하기&nbsp<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-calculator" viewBox="0 0 16 16">
+  <path d="M12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h8zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z"/>
+  <path d="M4 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-2zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-4z"/>
+</svg></h3>
+            <p class="text-muted" style="font-size: 20px;">월 등록비의 80% 지원, 월 지원한도는 15만원입니다.
+                <br>운동 시작 및 결제일이 15일 이내인 경우만 해당 월 인정, 16일 이후부터는 익월분으로 신청가능합니다.
+                <br>등록 수강기간 전체 일괄 신청시 최대 12개월 신청가능합니다.
+                <br>지원금 지급은 1개월분 지원금을 산청하여 매월 말일 지급됩니다.</p>
+            <br>
 
             <form method='post'>
-
-        <div class='form-group row'>
+        <div class='form-group row' style="font-size: 20px;">
             <div class='col-sm-6'>
                 <label>월 수강료를 입력하세요</label>
                 </div>
             <div class='cold-sm-6'>
                 <input type='number' class='form-control' name='tuition_fee'
                        placeholder='수강료'>
-                </div>
+            </div>
         </div>
 
-
-        <div class='form-group row'>
+        <div class='form-group row' style="font-size: 20px;">
             <div class='col-sm-6'>
                 <label>시작일자를 입력하세요</label>
             </div>
-        </div>
-        <div class='cold-sm-6'>
-            <input type='date' class='form-control' name='start_date'
-                   placeholder='시작일'>
+            <div class='cold-sm-6'>
+                <input type='date' class='form-control' name='start_date'
+                       placeholder='시작일'>
+            </div>
         </div>
 
-        <div class='form-group row'>
+        <div class='form-group row' style="font-size: 20px;">
             <div class='col-sm-6'>
                 <label>종료일자를 입력하세요</label>
             </div>
-        </div>
-        <div class='cold-sm-6'>
-            <input type='date' class='form-control' name='end_date'
-                   placeholder='종료일'>
+            <div class='cold-sm-6'>
+                <input type='date' class='form-control' name='end_date'
+                       placeholder='종료일'>
+            </div>
         </div>
 
 
@@ -77,18 +65,11 @@
         <div class='form-group row'>
             <div class='col-sm-6'>
                 <br>
-                <br>
-                <button type='submit' class='btn btn-primary'>계산하기</button>
+                <button type='submit' class='btn btn-primary' style="font-size: 20px;">계산하기</button>
             </div>
-
-<!--            <div>-->
-<!--              <p style='font-weight:bold; font-size: 30px; color: green'>지원금액: {{ wig }}</p>-->
-<!--            </div>-->
-
         </div>
             </form>
         </div>
-
         </body>
 </html>
 

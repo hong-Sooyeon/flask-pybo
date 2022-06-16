@@ -16,7 +16,7 @@ class UserCreateForm(FlaskForm):
     password2 = PasswordField('비밀번호확인', validators=[DataRequired()])
     email = EmailField('이메일', validators=[DataRequired(), Email()])
     # 회원가입시 행번정보 받기위해 만든거. 안되면 삭제
-    usernumber = IntegerField('행번', validators=[DataRequired()])
+    usernumber = IntegerField('행번')
 
 class UserLoginForm(FlaskForm):
     username = StringField('사용자이름', validators=[DataRequired(), Length(min=3, max=25)])
