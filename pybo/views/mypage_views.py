@@ -23,6 +23,9 @@ def modify_info():
     user_name = user.username           #아래 3줄은 사용자 정보 text 표시
     user_email = user.email
     user_number = user.usernumber
+    name = user.name
+    dept = user.dept
+    position = user.position
     current_user = user.id
     star = db.session.query(Photo).filter(Photo.user_id.like(current_user)).count()     #photo db에서 사용자 id 횟수 count
-    return render_template('mypage/modify_info.html', variable=star, username=user_name, useremail=user_email, usernumber=user_number, form=form)
+    return render_template('mypage/modify_info.html', variable=star, username=user_name, useremail=user_email, usernumber=user_number, name=name, dept=dept, position=position, form=form)

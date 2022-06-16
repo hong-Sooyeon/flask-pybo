@@ -13,7 +13,7 @@ from email.mime.text import MIMEText
 # from email.mime.base import MIMEBase
 # from email.mime.multipart import MIMEMultipart
 # from email.mime.text import MIMEText
-from flask import request, render_template, Blueprint, app, flash, Flask
+from flask import request, render_template, Blueprint, app, flash, Flask, g
 from pybo.views.auth_views import login_required
 #
 # # import sys
@@ -54,6 +54,11 @@ bp = Blueprint('form_sending', __name__, url_prefix='/form_sending')
 @bp.route('/sending_form/', methods=('GET', 'POST'))
 @login_required
 def email_test():
+    user = g.user
+    name = user.name
+    usernumber = user.usernumber
+    dept = user.dept
+    position = user.position
     if request.method == 'POST':
         senders = 'hanabankhconnect@gmail.com'
         receiver = request.form["email_receiver"]
@@ -70,7 +75,7 @@ def email_test():
             return render_template('form_sending/form_sending.html', content="Email is not sent")
 
     else:
-        return render_template('form_sending/form_sending.html')
+        return render_template('form_sending/form_sending.html', name=name, usernumber=usernumber, dept=dept, position=position)
 
 
 @bp.route('/send_email', methods=('GET', 'POST'))

@@ -110,34 +110,35 @@
 
                         <div class="col-sm-6">
                             <label for="idnumber" class="form-label">행번</label>
-                            <input type="text" class="form-control" id="idNumber" placeholder="" value="" required>
-                            <div class="invalid-feedback">
-                                Valid Id Number is required.
+<!--                            <input type="text" class="form-control" id="idNumber" placeholder="" value="" required>-->
+                            <!------db에서 행번, 이름, 부서, 직급 가져오기-------------->
+                            <div id="idnumber">
+                                &nbsp&nbsp&nbsp{{ usernumber }}
                             </div>
                         </div>
 
                         <div class="col-sm-6">
                             <label for="username" class="form-label">성명</label>
-                            <input type="text" class="form-control" id="username" placeholder="" value="" required>
-                            <div class="invalid-feedback">
-                                Valid user name is required.
+<!--                            <input type="text" class="form-control" id="username" placeholder="" value="" required>-->
+                            <div id="username">
+                                &nbsp&nbsp&nbsp{{ name }}
                             </div>
                         </div>
 
                         <div class="col-sm-6">
                             <label for="branchname" class="form-label">부점명</label>
-                            <input type="text" class="form-control" id="branchname" placeholder="" value=""
-                                   required>
-                            <div class="invalid-feedback">
-                                Valid branch name is required.
+<!--                            <input type="text" class="form-control" id="branchname" placeholder="" value=""-->
+<!--                                   required>-->
+                            <div id="branchname">
+                                &nbsp&nbsp&nbsp{{ dept }}
                             </div>
                         </div>
 
                         <div class="col-sm-6">
                             <label for="position" class="form-label">직급</label>
-                            <input type="text" class="form-control" id="position" placeholder="" value="" required>
-                            <div class="invalid-feedback">
-                                Valid position is required.
+<!--                            <input type="text" class="form-control" id="position" placeholder="" value="" required>-->
+                            <div id="position">
+                                &nbsp&nbsp&nbsp{{ position }}
                             </div>
                         </div>
                     </div>

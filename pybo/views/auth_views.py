@@ -22,20 +22,26 @@ def confirm():
         elif user.password != form.password.data:   #user.password=db에 저장된 하나포탈 비번
             flash("하나포탈 비밀번호가 올바르지 않습니다.")
         elif error is None:
-            return redirect(url_for('auth.signup', usernumber=user.usernumber))   #회원가입시 행번정보 연동하여 가져감
+            return redirect(url_for('auth.signup', usernumber=user.usernumber, name=user.username, dept=user.dept, position=user.position))   #회원가입시 행번,부서,직급정보 연동하여 가져감
     return render_template('auth/confirm.html', form=form)
 
-@bp.route('/signup/<int:usernumber>', methods=('GET', 'POST'))
-def signup(usernumber):
+@bp.route('/signup/<int:usernumber>,<name>,<dept>,<position>', methods=('GET', 'POST'))
+def signup(usernumber, name, dept, position):
     form = UserCreateForm()
     usernumber = usernumber
+    name=name
+    dept = dept
+    position = position
     if request.method == 'POST' and form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
         if not user:
             user = User(username=form.username.data,
                         password=generate_password_hash(form.password1.data),
                         email=form.email.data,
-                        usernumber=usernumber)   #행번정보는 confirm시 가져온 값 그대로 가져감
+                        usernumber=usernumber,
+                        name=name,
+                        dept=dept,
+                        position=position)   #행번정보는 confirm시 가져온 값 그대로 가져감
             db.session.add(user)
             db.session.commit()
             flash('가입을 환영합니다.')
