@@ -7,7 +7,7 @@
         }
         h1{
             font-size:40px;
-            padding:20px;
+            padding:20px 0px 10px;
             margin-bottom: 0;
             text-align: center;
         }
@@ -134,26 +134,31 @@
                         <input type="text" name="card_number" value="{{ info.card_number }}" />
                     </td>
                 </tr>
-
                 <tr>
                     <td>영수증</td>
                     <td>
                         <input type="file" name="email_file1" style="width:auto">
-                        {{ files.email_file1 }}
+                        {% if files.email_file1 %}
+                            {{ files.email_file1 }}
+                        {% endif %}
                     </td>
                 </tr>
                 <tr>
                     <td>수강확인서</td>
                     <td>
                         <input type="file" name="email_file2" style="width:auto">
-                        {{ files.email_file2 }}
+                        {% if files.email_file2 %}
+                            {{ files.email_file2 }}
+                        {% endif %}
                     </td>
                 </tr>
                 <tr>
                     <td>신용카드</td>
                     <td>
                         <input type="file" name="email_file3" style="width:auto">
-                        {{ files.email_file3 }}
+                        {% if files.email_file3 %}
+                            {{ files.email_file3 }}
+                        {% endif %}
                     </td>
                 </tr>
                 <tr>
@@ -169,6 +174,11 @@
             </table>
         </form>
     </div>
+    {% if result %}
+        <script>
+            alert("메일보내기 성공하였습니다.")
+        </script>
+    {% endif %}
     <script>
         function reload(){
             location.href = "/apply/apply";
