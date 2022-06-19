@@ -1,249 +1,177 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% block content %}
-
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>지원 신청서 작성</title>
-
-<style>
- h, td, tr, input, textarea, select, FORM
- {
-<!--  font-family:고딕;-->
-  font-size:1em;
-  border-radius:5px;
-
- }
-
- table, FORM
- {
-  border-spacing:20px;
- }
-
-</style>
-
-<!doctype html>
-<html lang="ko">
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="/static/bootstrap.min.css">
-    <link rel="stylesheet" href="/static/bootstrap.bundle.min.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.0.0/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
-    <!-- pybo CSS -->
-    <link rel="stylesheet" href="/static/style.css">
-    <title>HCONNECT</title>
-    <style>@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');</style>
-
-<!-- 기본 템플릿 안에 삽입될 내용 Start -->
-
-<div class="container" style="text-align: center;">
-    
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
-    .container{
-        font-family: 'Do Hyeon', sans-serif;
-    }
+        @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+        .container{
+            font-family: 'Do Hyeon', sans-serif;
+        }
+        h1{
+            font-size:40px;
+            padding:20px;
+            margin-bottom: 0;
+            text-align: center;
+        }
+        table{
+            margin:0 auto;
+            border-collapse: separate;
+            border-spacing: 0 5px;
+        }
+        tr td.title{
+            padding: 10px 0px;
+            font-size:18px;
+        }
+        input,select{
+            width:100%;
+            border-radius: 5px;
+            padding:1px 5px;
+        }
     </style>
+    <div class="container">
+        <h1>
+            체력단련비 신청서
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-send" viewBox="0 0 16 16">
+                <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z"/>
+            </svg>
+        </h1>
+        <form action="/apply/apply" method="POST" enctype="multipart/form-data">
+            <table boder="cellspacing = 1" id="document">
+                <tr>
+                    <td class="title">■ 인적사항</td>
+                </tr>
+                <tr>
+                    <td>행번</td>
+                    <td>
+                        <input type="text" name="usernumber" value="{{ info.usernumber }}" readonly />
+                    </td>
+                </tr>
+                <tr>
+                    <td>성명</td>
+                    <td>
+                        <input name="name" type="text" name="name" value="{{ info.name }}" readonly />
+                    </td>
+                </tr>
+                <tr>
+                    <td>부점명</td>
+                    <td>
+                        <input type="text" name="dept" value="{{ info.dept }}" readonly />
+                    </td>
+                </tr>
+                <tr>
+                    <td>직급</td>
+                    <td>
+                        <input type="text" name="position" value="{{ info.position }}" readonly />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="title">■ 수강상세내역</td>
+                </tr>
+                <tr>
+                    <td>수강과목</td>
+                    <td>
+                        <input type="text" name="course" value="{{ info.course }}"/>
+                    </td>
+                </tr>
+                <tr>
+                   <td>수강기간</td>
+                   <td>
+                      <input type="date" name="course_start_time" style="width:46.5%" value="{{ info.course_start_time }}">
+                       ~
+                      <input type="date" name="course_end_time" style="width:46.5%" value="{{ info.course_end_time }}">
+                   </td>
+                </tr>
+                <tr>
+                    <td>기관명</td>
+                    <td>
+                        <input type="text" name="organization_name" value="{{ info.organization_name }}" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>기관 전화번호</td>
+                    <td>
+                        <input type="text"  name="organization_tel" value="{{ info.organization_tel }}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>총결제금액</td>
+                    <td>
+                        <input type="text" name="total_price" value="{{ info.total_price }}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>수강개월</td>
+                    <td>
+                        <select name="course_month">
+                            <option value="1" {% if info.course_month == "1" %} selected {% endif %} > 1개월 </option>
+                            <option value="2" {% if info.course_month == "2" %} selected {% endif %} > 2개월 </option>
+                            <option value="3" {% if info.course_month == "3" %} selected {% endif %} > 3개월 </option>
+                            <option value="4" {% if info.course_month == "4" %} selected {% endif %} > 4개월 </option>
+                            <option value="5" {% if info.course_month == "5" %} selected {% endif %} > 5개월 </option>
+                            <option value="6" {% if info.course_month == "6" %} selected {% endif %} > 6개월 </option>
+                            <option value="7" {% if info.course_month == "7" %} selected {% endif %} > 7개월 </option>
+                            <option value="8" {% if info.course_month == "8" %} selected {% endif %} > 8개월 </option>
+                            <option value="9" {% if info.course_month == "9" %} selected {% endif %} > 9개월 </option>
+                            <option value="10" {% if info.course_month == "10" %} selected {% endif %} > 10개월 </option>
+                            <option value="11" {% if info.course_month == "11" %} selected {% endif %} > 11개월 </option>
+                            <option value="12" {% if info.course_month == "12" %} selected {% endif %} > 12개월 </option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>영수증 결제일</td>
+                    <td>
+                        <input type="date" name="payment_date" value="{{ info.payment_date }}" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>승인번호</td>
+                    <td>
+                        <input type="text" name="approval_number" value="{{ info.approval_number }}" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>결제카드번호</td>
+                    <td>
+                        <input type="text" name="card_number" value="{{ info.card_number }}" />
+                    </td>
+                </tr>
 
-
-<head>
-    <body style="background-color:#6488E5">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script type = "text/javascript" src = "http://code.jquery.com/jquery-latest.min.js"></script>
-    <script type = "text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
-    <script type = "text/javascript" src = "https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
-    <title>Document</title>
-    </head>
-
-
-
-<form action="/apply/" method=post class="needs-validation" novalidate>
-
-<center>
-
- <table boder = "cellspacing = "1" id="document">
-
-<tr><br>
-    <h3> 체력단련비 신청서 &nbsp<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-send" viewBox="0 0 16 16">
-  <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z"/>
-</svg></h3>
-
-  <tr>
-   <td> <br>■ 인적사항 </td>
-  </tr>
-
-  <tr>
-   <td text-align="center"> 행번 </td>
-   <td> <input type = "text" /> </td>
-  </tr>
-
-  <tr>
-   <td text-align="center"> 성명 </td>
-   <td> <input name="name" type = "text" /> </td>
-  </tr>
-
-  <tr>
-   <td text-align="center"> 부점명 </td>
-   <td> <input type = "text" /> </td>
-  </tr>
-
-  <tr>
-   <td text-align="center"> 직급 </td>
-       <td>
-          <select>
-              <option> 행원 </option>
-              <option> 대리 </option>
-              <option> 과장 </option>
-              <option> 차장 </option>
-              <option> 부지점장 </option>
-            </select>
-       </td>
-  </tr>
-
-  <tr>
-   <td> <br>■ 수강상세내역 </td>
-  </tr>
-
-
-  <tr>
-   <td text-align="center"> 수강과목 </td>
-   <td> <input type = "text" /> </td>
-  </tr>
-
-  <tr>
-   <td text-align="center"> 수강기간 </td>
-   <td>
-       <form>
-      <p><input type="date"> ~ <input type="date"></p>
-       </form>
-   </td>
-  </tr>
-
-  <tr>
-   <td text-align="center"> 기관명 </td>
-   <td> <input type = "text" /> </td>
-  </tr>
-
-  <tr>
-   <td text-align="center"> 기관 전화번호 </td>
-   <td> <input type = "text" /> </td>
-  </tr>
-
-  <tr>
-   <td text-align="center"> 총결제금액 </td>
-   <td> <input type = "text" /> </td>
-  </tr>
-
-  <tr>
-   <td text-align="center"> 수강개월 </td>
-      <td>
-          <select>
-              <option> 1개월 </option>
-              <option> 2개월 </option>
-              <option> 3개월 </option>
-              <option> 4개월 </option>
-              <option> 5개월 </option>
-              <option> 6개월 </option>
-              <option> 7개월 </option>
-              <option> 8개월 </option>
-              <option> 9개월 </option>
-              <option> 10개월 </option>
-              <option> 11개월 </option>
-              <option> 12개월 </option>
-            </select>
-       </td>
-  </tr>
-
-  <tr>
-   <td text-align="center"> 영수증 결제일 </td>
-
-   <td>
-       <form>
-      <p><input type="date"></p>
-       </form>
-   </td>
-  </tr>
-
-  <tr>
-   <td text-align="center"> 승인번호 </td>
-   <td> <input type = "text" /> </td>
-  </tr>
-
-  <tr>
-   <td text-alig    n="center"> 결제카드번호 </td>
-   <td> <input type = "text" /> </td>
-  </tr>
-
-  <tr>
-   <td text-alig    n="center"> Email </td>
-   <td> <input type = "text" /> </td>
-  </tr>
-
-
-</table>
-
-<body>
-
-
-  <br><tr>
-
-   <br><td>영수증</td>
-   <td>
-    <input type=file name=email_file value="">
-   </td>
-
-     <br><td>수강확인서</td>
-   <td>
-    <input type=file name=email_file value="">
-   </td>
-
-     <br><td>신용카드</td>
-   <td>
-    <input type=file name=email_file value="">
-   </td>
- </tr>
-
-
-
-
-<br>
-</body>
-  <p>
-   <input type=submit value=메일발송>
-  </p>
-</center>
-</form>
-
-
-</html>
-
-<!-- 기본 템플릿 안에 삽입될 내용 End -->
-<!-- Bootstrap JS -->
-<script src="/static/bootstrap.min.js"></script>
-<script src="/static/bootstrap.bundle.js"></script>
-<script type = "text/javascript" src = "http://code.jquery.com/jquery-latest.min.js"></script>
-<script type = "text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
-<script type = "text/javascript" src = "https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
-<script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
-<script src="/docs/5.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-<!--<script src="form-validation.js"></script>-->
-<!-- 자바스크립트 Start -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.2/moment-with-locales.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.0.0/js/bootstrap-datetimepicker.min.js"></script>
-
-
-<!-- 자바스크립트 End -->
-</body>
-</html>
-
-
-
+                <tr>
+                    <td>영수증</td>
+                    <td>
+                        <input type="file" name="email_file1" style="width:auto">
+                        {{ files.email_file1 }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>수강확인서</td>
+                    <td>
+                        <input type="file" name="email_file2" style="width:auto">
+                        {{ files.email_file2 }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>신용카드</td>
+                    <td>
+                        <input type="file" name="email_file3" style="width:auto">
+                        {{ files.email_file3 }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {% if info.email %}
+                            <input type="button" value="재작성" onclick="reload()"/>
+                        {% endif %}
+                    </td>
+                    <td>
+                        <input type="submit" value="메일발송"/>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <script>
+        function reload(){
+            location.href = "/apply/apply";
+        }
+    </script>
 {% endblock %}
