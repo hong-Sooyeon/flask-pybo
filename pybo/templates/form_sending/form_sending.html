@@ -210,12 +210,16 @@
                     <div class="row g-3">
                         <div class="col-sm-6">
                             <label for="amount" class="form-label">수강신청금액</label>
-                            <input type="text" class="form-control" id="amount" placeholder="" value="" required>
+
+                            <input type="text" id="amount" name="amount" value="" class="form-control" inputmode="numeric" placeholder="금액을 입력하세요." onkeyup="inputNumberFormat(this)">
+
+<!--                            <input type="text" class="form-control" id="amount" inputmode="numeric" placeholder="금액입력" value="" required>-->
                         </div>
+
 
                         <div class="col-sm-6">
                             <label for="payDate" class="form-label">결제일</label>
-                            <input type="text" class="form-control" id="payDate" placeholder="" value="" required>
+                            <input type="date" class="form-control" id="payDate" placeholder="" value="" required>
                         </div>
                     </div>
 
@@ -352,11 +356,6 @@
         .save()
     }
 
-
-
-
-
-
 </script>
 
 <script type="text/javascript">
@@ -372,12 +371,43 @@ $(document).ready(function() {
     });
 });
 
-
-
-
-
-
 </script>
+
+<script>
+  document.getElementById('amount').addEventListener('input', (e) => {
+    // 천단위 콤마 처리 함수
+  })
+</script>
+
+    <script>
+        const input = document.querySelector('#number');
+        input.addEventListener('keyup', function(e) {
+        let value = e.target.value;
+        value = Number(value.replaceAll(',', ''));
+        if(isNaN(value)) {         //NaN인지 판별
+            input.value = 0;
+        }else {                   //NaN이 아닌 경우
+        const formatValue = value.toLocaleString('ko-KR');
+        input.value = formatValue;
+  }
+})
+    </script>
+    <script>
+    function inputNumberFormat(obj) {
+     obj.value = comma(uncomma(obj.value));
+ }
+
+ function comma(str) {
+     str = String(str);
+     return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
+ }
+
+ function uncomma(str) {
+     str = String(str);
+     return str.replace(/[^\d]+/g, '');
+ }
+
+    </script>
 </html>
 
 {% endblock %}
