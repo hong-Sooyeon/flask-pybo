@@ -44,25 +44,29 @@
                 <tr>
                     <td>행번</td>
                     <td>
-                        <input type="text"  class="form-control" name="usernumber" value="{{ info.usernumber }}" readonly />
+                        &nbsp&nbsp{{ info.usernumber }}
+<!--                        <input type="text"  class="form-control" name="usernumber" value="{{ info.usernumber }}" readonly />-->
                     </td>
                 </tr>
                 <tr>
                     <td>성명</td>
                     <td>
-                        <input name="name"  class="form-control" type="text" name="name" value="{{ info.name }}" readonly />
+                        &nbsp&nbsp{{ info.name }}
+<!--                        <input name="name"  class="form-control" type="text" name="name" value="{{ info.name }}" readonly />-->
                     </td>
                 </tr>
                 <tr>
                     <td>부점명</td>
                     <td>
-                        <input type="text"  class="form-control" name="dept" value="{{ info.dept }}" readonly />
+                        &nbsp&nbsp{{ info.dept }}
+<!--                        <input type="text"  class="form-control" name="dept" value="{{ info.dept }}" readonly />-->
                     </td>
                 </tr>
                 <tr>
                     <td>직급</td>
                     <td>
-                        <input type="text"  class="form-control" name="position" value="{{ info.position }}" readonly />
+                        &nbsp&nbsp{{ info.position }}
+<!--                        <input type="text"  class="form-control" name="position" value="{{ info.position }}" readonly />-->
                     </td>
                 </tr>
                 <tr>
@@ -77,9 +81,9 @@
                 <tr>
                    <td>수강기간</td>
                    <td>
-                      <input type="date"  name="course_start_time" style="width:46.5%" value="{{ info.course_start_time }}">
-                       ~
-                      <input type="date" class = "form-control" name="course_end_time" style="width:46.5%" value="{{ info.course_end_time }}">
+                      <input type="date" class = "form-control" name="course_start_time" style="width:46.5%; float:left;" value="{{ info.course_start_time }}"/>
+                        ~
+                      <input type="date" class = "form-control" name="course_end_time" style="width:46.5%; float:right;" value="{{ info.course_end_time }}">
                    </td>
                 </tr>
                 <tr>
@@ -170,12 +174,15 @@
                             <input type="button" value="재작성" onclick="reload()"/>
                         {% endif %}
                     </td>
+                    <br>
                     <td>
-                        <input type="submit" value="메일발송"/>
+                        <input type="submit" class="btn btn-primary" value="메일발송"/>
                     </td>
                 </tr>
             </table>
         </form>
+        <br>
+        <br>
     </div>
     {% if result %}
         <script>
