@@ -11,11 +11,12 @@
         font-family: 'Do Hyeon', sans-serif;
     }
 </style>
-    <div class="container-fluid"ㅋ>
+    <div class="container-fluid">
+        &nbsp&nbsp&nbsp&nbsp&nbsp
         <!--original <a class="navbar-brand" href="{{ url_for('main.index') }}">Pybo</a>-->
         <!--<a class="navbar-brand" href="{{ url_for('main.index') }}">HCONNECT</a>-->
         <!--original<a class="navbar-brand" style="background-color: #20b2aa;" href="{{ url_for('main.index') }}">HCONNECT</a>-->
-        <a class="navbar-brand" style="background-color: #20b2aa; color:white;" href="{{ url_for('hconnect.screen') }}">&nbsp;&nbsp;HCONNECT&nbsp;&nbsp;</a>
+        <a class="navbar-brand" style="background-color: #20b2aa; color:white; font-size:22px;" href="{{ url_for('hconnect.screen') }}">&nbsp;&nbsp;HCONNECT&nbsp;&nbsp;</a>
         <button class="navbar-toggler" type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent"
@@ -25,67 +26,80 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
             {% if g.user %}
             <ul class="navbar-nav">
                 <li class="nav-item ">
-                    <a class= "nav-link" href="{{ url_for('auth.logout') }}" style="color:white;">{{ g.user.username }} (로그아웃)</a>
+                    <a class= "nav-link" href="{{ url_for('auth.logout') }}" style="color:white; font-size:17px;">{{ g.user.username }} (로그아웃)</a>
                 </li>
+                &nbsp&nbsp&nbsp
                 <!--아래부터 변경사항-->
                 <li class="nav-item">
                     <!--아래한줄 변경전 작동코드 <a class="nav-link" href="#">지원종목</a> -->
-                    <a class="nav-link" href="{{ url_for('exercise.info') }}" style="color:white;">지원종목</a>
+                    <a class="nav-link" href="{{ url_for('exercise.info') }}" style="color:white; font-size:17px;">지원종목</a>
                 </li>
+                &nbsp&nbsp&nbsp
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('calculator.amount') }}" style="color:white;">지원금계산</a>
+                    <a class="nav-link" href="{{ url_for('calculator.amount') }}" style="color:white; font-size:17px;">지원금계산</a>
                 </li>
+                &nbsp&nbsp&nbsp
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('form_sending.email_test') }}" style="color:white;">수강확인서 발송</a>
+                    <a class="nav-link" href="{{ url_for('form_sending.email_test') }}" style="color:white; font-size:17px;">수강확인서 발송</a>
                 </li>
+                &nbsp&nbsp&nbsp
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('apply.make') }}" style="color:white;">신청하기</a>
+                    <a class="nav-link" href="{{ url_for('apply.make') }}" style="color:white; font-size:17px;">신청하기</a>
                 </li>
+                &nbsp&nbsp&nbsp
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('question._list') }}" style="color:white;">운동메이트 구하기</a>
+                    <a class="nav-link" href="{{ url_for('question._list') }}" style="color:white; font-size:17px;">운동메이트 구하기</a>
                 </li>
+                &nbsp&nbsp&nbsp
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('photo._list') }}" style="color:white;">운동 인증하기</a>
+                    <a class="nav-link" href="{{ url_for('photo._list') }}" style="color:white; font-size:17px;">운동 인증하기</a>
                 </li>
+                &nbsp&nbsp&nbsp
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('mypage.modify_info') }}" style="color:white;">마이페이지</a>
+                    <a class="nav-link" href="{{ url_for('mypage.modify_info') }}" style="color:white; font-size:17px;">마이페이지</a>
                 </li>
 
             </ul>
             {% else %}
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('auth.confirm') }}" style="color:white;">계정생성</a>
-
+                    <a class="nav-link" href="{{ url_for('auth.confirm') }}" style="color:white; font-size:17px;">계정생성</a>
                 </li>
+                &nbsp&nbsp&nbsp
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('auth.login') }}" style="color:white;">로그인</a>
+                    <a class="nav-link" href="{{ url_for('auth.login') }}" style="color:white; font-size:17px;">로그인</a>
                 </li>
-                <!--아래부터 변경사항-->
+                &nbsp&nbsp&nbsp
                 <li class="nav-item">
-                    <!--아래한줄 변경전 작동코드 <a class="nav-link" href="#">지원종목</a> -->
-                    <a class="nav-link" href="{{ url_for('exercise.info') }}" style="color:white;">지원종목</a>
+                    <a class="nav-link" href="{{ url_for('exercise.info') }}" style="color:white; font-size:17px;">지원종목</a>
                 </li>
+                &nbsp&nbsp&nbsp
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('calculator.amount') }}" style="color:white;">지원금계산</a>
+                    <a class="nav-link" href="{{ url_for('calculator.amount') }}" style="color:white; font-size:17px;">지원금계산</a>
                 </li>
+                &nbsp&nbsp&nbsp
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('form_sending.email_test') }}" style="color:white;">수강확인서 발송</a>
+                    <a class="nav-link" href="{{ url_for('form_sending.email_test') }}" style="color:white; font-size:17px;">수강확인서 발송</a>
                 </li>
+                &nbsp&nbsp&nbsp
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('apply.make') }}" style="color:white;">신청하기</a>
+                    <a class="nav-link" href="{{ url_for('apply.make') }}" style="color:white; font-size:17px;">신청하기</a>
                 </li>
+                &nbsp&nbsp&nbsp
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('question._list') }}" style="color:white;">운동메이트 구하기</a>
+                    <a class="nav-link" href="{{ url_for('question._list') }}" style="color:white; font-size:17px;">운동메이트 구하기</a>
                 </li>
+                &nbsp&nbsp&nbsp
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('photo._list') }}" style="color:white;">운동인증</a>
+                    <a class="nav-link" href="{{ url_for('photo._list') }}" style="color:white; font-size:17px;">운동인증</a>
                 </li>
+                &nbsp&nbsp&nbsp
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('mypage.modify_info') }}" style="color:white;">마이페이지</a>
+                    <a class="nav-link" href="{{ url_for('mypage.modify_info') }}" style="color:white; font-size:17px;">마이페이지</a>
                 </li>
 
 
