@@ -15,6 +15,7 @@
             margin:0 auto;
             border-collapse: separate;
             border-spacing: 0 5px;
+      }
         }
         tr td.title{
             padding: 10px 0px;
@@ -22,8 +23,9 @@
         }
         input,select{
             width:100%;
-            border-radius: 5px;
+<!--            border-radius: 5px;-->
             padding:1px 5px;
+            white-space: nowrap;
         }
     </style>
     <div class="container">
@@ -42,25 +44,29 @@
                 <tr>
                     <td>행번</td>
                     <td>
-                        <input type="text" name="usernumber" value="{{ info.usernumber }}" readonly />
+<!--                        <input type="text" name="usernumber" value="{{ info.usernumber }}" readonly />-->
+                        {{ info.usernumber }}
                     </td>
                 </tr>
                 <tr>
                     <td>성명</td>
                     <td>
-                        <input name="name" type="text" name="name" value="{{ info.name }}" readonly />
+<!--                        <input name="name" type="text" name="name" value="{{ info.name }}" readonly />-->
+                        {{ info.name }}
                     </td>
                 </tr>
                 <tr>
                     <td>부점명</td>
                     <td>
-                        <input type="text" name="dept" value="{{ info.dept }}" readonly />
+<!--                        <input type="text" name="dept" value="{{ info.dept }}" readonly />-->
+                        {{ info.dept }}
                     </td>
                 </tr>
                 <tr>
                     <td>직급</td>
                     <td>
-                        <input type="text" name="position" value="{{ info.position }}" readonly />
+<!--                        <input type="text" name="position" value="{{ info.position }}" readonly />-->
+                        {{ info.position }}
                     </td>
                 </tr>
                 <tr>
@@ -69,39 +75,39 @@
                 <tr>
                     <td>수강과목</td>
                     <td>
-                        <input type="text" name="course" value="{{ info.course }}"/>
+                        <input type="text" class = "form-control" name="course" value="{{ info.course }}"/>
                     </td>
                 </tr>
                 <tr>
                    <td>수강기간</td>
                    <td>
-                      <input type="date" name="course_start_time" style="width:46.5%" value="{{ info.course_start_time }}">
+                      <input type="date" class = "form-control" name="course_start_time" style="width:46.5%" value="{{ info.course_start_time }}">
                        ~
-                      <input type="date" name="course_end_time" style="width:46.5%" value="{{ info.course_end_time }}">
+                      <input type="date" class = "form-control" name="course_end_time" style="width:46.5%" value="{{ info.course_end_time }}">
                    </td>
                 </tr>
                 <tr>
                     <td>기관명</td>
                     <td>
-                        <input type="text" name="organization_name" value="{{ info.organization_name }}" />
+                        <input type="text" class = "form-control" name="organization_name" value="{{ info.organization_name }}" />
                     </td>
                 </tr>
                 <tr>
                     <td>기관 전화번호</td>
                     <td>
-                        <input type="text"  name="organization_tel" value="{{ info.organization_tel }}"/>
+                        <input type="text" class = "form-control" name="organization_tel" value="{{ info.organization_tel }}"/>
                     </td>
                 </tr>
                 <tr>
                     <td>총결제금액</td>
                     <td>
-                        <input type="text" name="total_price" value="{{ info.total_price }}"/>
+                        <input type="text" class = "form-control" name="total_price" value="{{ info.total_price }}"/>
                     </td>
                 </tr>
                 <tr>
                     <td>수강개월</td>
                     <td>
-                        <select name="course_month">
+                        <select name="course_month" class = "form-control">
                             <option value="1" {% if info.course_month == "1" %} selected {% endif %} > 1개월 </option>
                             <option value="2" {% if info.course_month == "2" %} selected {% endif %} > 2개월 </option>
                             <option value="3" {% if info.course_month == "3" %} selected {% endif %} > 3개월 </option>
@@ -120,19 +126,19 @@
                 <tr>
                     <td>영수증 결제일</td>
                     <td>
-                        <input type="date" name="payment_date" value="{{ info.payment_date }}" />
+                        <input type="date" class = "form-control" name="payment_date" value="{{ info.payment_date }}" />
                     </td>
                 </tr>
                 <tr>
                     <td>승인번호</td>
                     <td>
-                        <input type="text" name="approval_number" value="{{ info.approval_number }}" />
+                        <input type="text" class = "form-control" name="approval_number" value="{{ info.approval_number }}" />
                     </td>
                 </tr>
                 <tr>
                     <td>결제카드번호</td>
                     <td>
-                        <input type="text" name="card_number" value="{{ info.card_number }}" />
+                        <input type="text" class = "form-control" name="card_number" value="{{ info.card_number }}" />
                     </td>
                 </tr>
                 <tr>
