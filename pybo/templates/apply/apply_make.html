@@ -81,9 +81,9 @@
                 <tr>
                    <td>수강기간</td>
                    <td>
-                      <input type="date" class = "form-control" name="course_start_time" style="width:46.5%; float:left;" value="{{ info.course_start_time }}" required/>
+                      <input type="date" max="2999-12-31" class = "form-control" name="course_start_time" style="width:46.5%; float:left;" value="{{ info.course_start_time }}" required/>
                         ~
-                      <input type="date" class = "form-control" name="course_end_time" style="width:46.5%; float:right;" value="{{ info.course_end_time }}" required>
+                      <input type="date" max="2999-12-31" class = "form-control" name="course_end_time" style="width:46.5%; float:right;" value="{{ info.course_end_time }}" required>
                    </td>
                 </tr>
                 <tr>
@@ -126,7 +126,7 @@
                 <tr>
                     <td>영수증 결제일</td>
                     <td>
-                        <input type="date"  class="form-control" name="payment_date" value="{{ info.payment_date }}" required/>
+                        <input type="date" max="2999-12-31" class="form-control" name="payment_date" value="{{ info.payment_date }}" required/>
                     </td>
                 </tr>
                 <tr>
