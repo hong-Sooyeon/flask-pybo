@@ -45,7 +45,7 @@
                                 <label>월 수강료를 입력하세요</label>
                                 </div>
                             <div class='cold-sm-6'>
-                                <input type='number' class='form-control' name='tuition_fee' placeholder='수강료' maxlength="10" onkeyup="inputNumberFormat(this);"/>
+                                <input type='text' id='number' maxlength="10" onkeyup="inputNumberFormat(this);" class='form-control' name='tuition_fee' placeholder='수강료'  />
                             </div>
                         </div>
                         <br>
@@ -98,30 +98,32 @@ fuction input() {
   const passedTime = now.getTime()-dday.getTime();
   const passedDay = Math.round(passedTime/(24*60*60*1000));
   document.querySelector("accent").innerHTML = passedDay+"일";
-}
-
-function comma(str) {
-    str = String(str);
-    return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
     }
 
-function uncomma(str) {
-    str = String(str);
-    return str.replace(/[^\d]+/g, '');
-    }
+</script>
 
-function inputNumberFormat(obj) {
-    obj.value = comma(uncomma(obj.value));
-    }
+<script>
+    function comma(str) {
+        str = String(str);
+        return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
+        }
 
-function inputOnlyNumberFormat(obj) {
-    obj.value = onlynumber(uncomma(obj.value));
-    }
+        function uncomma(str) {
+        str = String(str);
+        return str.replace(/[^\d]+/g, '');
+        }
 
-function onlynumber(str) {
-    str = String(str);
-    return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g,'$1');
-    }
+        function inputNumberFormat(obj) {
+        obj.value = comma(uncomma(obj.value));
+        }
 
+        function inputOnlyNumberFormat(obj) {
+        obj.value = onlynumber(uncomma(obj.value));
+        }
+
+        function onlynumber(str) {
+       str = String(str);
+       return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g,'$1');
+       }
 </script>
 {% endblock %}
